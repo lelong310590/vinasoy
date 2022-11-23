@@ -1,0 +1,9 @@
+{
+    "name": "Translation",
+    "namespace": "Botble\\Translation\\",
+    "provider": "Botble\\Translation\\Providers\\TranslationServiceProvider",
+    "author": "Alusoft CMS",
+    "url": "https://alusoft.com",
+    "version": "5.8",
+    "description": "Manage translation text"
+}

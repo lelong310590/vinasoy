@@ -1,0 +1,9 @@
+{
+    "name": "Video Voting",
+    "namespace": "Botble\\VideoVoting\\",
+    "provider": "Botble\\VideoVoting\\Providers\\VideoVotingServiceProvider",
+    "author": "Alusoft CMS",
+    "url": "https://alusoft.com",
+    "version": "1.0",
+    "description": "Manage video, voting"
+}
