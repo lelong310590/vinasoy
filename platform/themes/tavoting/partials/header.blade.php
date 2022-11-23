@@ -72,7 +72,7 @@
                             <a href="javascript:;" class="sign-in-button">Đăng nhập</a>
                         @endif
                     </div>
-                    <a href="javascript:;" class="close-menu">Đóng</a>
+                    <a href="javascript:;" class="close-menu d-block d-md-none">Đóng</a>
                 </div>
 
                 <div class="action-navigation d-md-none d-block">
