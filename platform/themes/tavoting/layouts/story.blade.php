@@ -97,11 +97,51 @@
         <div class="story-cta-title text-center">
             <h4 class="text-green dancing">Tham gia ngay!</h4>
             <p>Để tham gia chia sẻ câu chuyện, bạn hãy click vào nút bên dưới và làm theo hướng dẫn.</p>
-            <a href="javascript:;" class="read-more">Chi sẻ câu chuyện <i class="fa-sharp fa-solid fa-down"></i></a>
+            <a href="javascript:;" class="read-more open-story-form">Chi sẻ câu chuyện <i class="fa-sharp fa-solid fa-down"></i></a>
             <p><b>Thời hạn nhận bài: 30/11/2022</b></p>
+        </div>
+
+        <div class="story-form">
+            <div class="story-form-inner">
+                @if (!auth('member')->check())
+                <div class="story-form-alert text-center">
+                    <p>Vui lòng <a href="javascript:;" class="text-orange sign-in-button">Đăng nhập</a> trước khi chia sẻ bài thi</p>
+                </div>
+                @endif
+                <form action="" method="post" role="form" enctype="multipart/form-data" id="dropzone">
+                    @csrf
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="" id="" placeholder="Tiêu đề câu chuyện của bạn">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="file" name="file" id="dropzone-item"/>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea type="text" class="form-control" rows="10" name="" id="" placeholder="Nội dung câu chuyện"></textarea>
+                    </div>
+
+                    <div class="story-form-submit text-center">
+                        <button type="submit" class="btn btn-primary">Chia sẻ câu chuyện</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </section>
+
+@php
+    $hightLightExe = app(\Botble\VideoVoting\Repositories\Interfaces\VideoInterface::class)
+                            ->getModel()
+                            ->whereHas('categories', function ($query) {
+                                $query->where('vv_video_categories.id', 1);
+                             })
+                            ->where('is_featured', true)
+                            ->where('status', 'published')
+                            ->orderBy('created_at', 'desc')
+                            ->first();
+@endphp
 
 <section class="exe-content">
     <div class="exe-hightlight story-hightlight">
@@ -109,21 +149,12 @@
             <div class="container">
                 <div class="exe-hightlight-wrapper-inner">
                     <div class="exe-image">
-                        <img src="{{Theme::asset()->url('images/info-ava.png')}}" alt="" class="img-fluid">
+                        <img src="{{ RvMedia::getImageUrl($hightLightExe->image, 'full', false, RvMedia::getDefaultImage()) }}" alt="" class="img-fluid">
                     </div>
                     <div class="ext-content">
-                        <h4 class="text-orange">CÂU CHUYỆN 4 LY RƯỢU</h4>
+                        <h4 class="text-orange text-uppercase">{{$hightLightExe->name}}</h4>
                         <div class="exe-detail">
-                            Thanh Hóa, năm 2010!<br/><br/>
-
-                            Tuy không còn nhớ rõ về thời gian, nhưng đó là chuyến đi để lại trong tôi nhiều cảm xúc, mà mãi sau này tôi vẫn thường hay kể lại với các anh em Vinasoy lúc cao hứng.
-                            Tôi cùng một số anh em Vinasoy đến tham dự đám cưới của một nhà phân phối (NPP) cũ. Trên bàn tiệc lúc đó còn có nhiều khách mời khác. Một người trong số những vị khách đã đứng lên mời tôi 3 ly rượu, theo phép lịch sự tôi cũng mời lại người này 1 ly.
-                            Tò mò, tôi mới hỏi người này vì sao ưu ái mời tôi đến 3 ly dù không quen biết nhau. Người đó trả lời: “Tôi đã biết đến ông từ lâu và rất nể phục ông cũng như Vinasoy.<br/><br/>
-
-                            Trong thời buổi này, doanh nghiệp kinh doanh, buôn bán mà giữ được sự trong sạch, liêm chính rất hiếm có. Vinasoy làm được điều này nên tôi rất quý và nể phục.”
-                            Tôi hỏi thêm vì sao chưa từng hợp tác làm ăn cùng nhau, mà lại có thể khẳng định như vậy. Người này trả lời, thông qua cách làm việc của nhân viên VNS thì có thể biết được bộ mặt của doanh nghiệp: “Tôi đã từng rất muốn làm NPP mới của Vinasoy bằng mọi cách. Thậm chí tôi tìm gặp Giám đốc vùng ở Nam Định để xin làm NPP và gửi riêng bì thư 200 triệu. Nhưng anh Giám đốc vùng lại từ chối nhận bì thư và nói rằng anh được công ty trả lương đầy đủ để làm việc công tâm, minh bạch.
-                            Sau đó, anh ta đã chọn NPP phù hợp với Vinasoy thay vì chọn tôi. Điều này khiến tôi thật sự nể phục về sự liêm chính, minh bạch của con người Vinasoy.”
-                            Dù chỉ là một câu chuyện nhỏ trên bàn tiệc, nhưng lại giúp tôi nhận ra những giá trị cốt lõi mà bản thân và Vinasoy luôn theo đuổi thật sự đúng đắn. Có được sự minh bạch, liêm chính trong mỗi cá nhân sẽ tạo nên môi trường trong sạch và vững chắc cho cả doanh nghiệp.
+                            {!! clean($hightLightExe->content) !!}
                         </div>
                     </div>
                 </div>

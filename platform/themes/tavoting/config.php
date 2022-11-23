@@ -54,6 +54,7 @@ return [
             $theme->asset()->container('footer')->add('fancy-js', 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js', ['jquery']);
             $theme->asset()->container('footer')->usePath()->add('owl-js', 'plugins/owlcarousel/dist/owl.carousel.min.js', ['jquery']);
             $theme->asset()->container('footer')->add('sa2', 'https://cdn.jsdelivr.net/npm/sweetalert2@11', ['jquery']);
+            $theme->asset()->container('footer')->add('dropzone', 'https://unpkg.com/dropzone@5/dist/min/dropzone.min.js', ['jquery']);
             $theme->asset()->container('footer')->usePath()->add('parsley', 'plugins/parsley/parsley.min.js', ['jquery']);
             $theme->asset()->container('footer')->usePath()->add('tavoting-js', 'js/tavoting.js', ['jquery']);
 
@@ -62,6 +63,7 @@ return [
             $theme->asset()->usePath()->add('owl-theme-css', 'plugins/owlcarousel/dist/assets/owl.theme.default.min.css');
             $theme->asset()->add('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css');
             $theme->asset()->add('fancy', 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css');
+            $theme->asset()->add('dropzone', 'https://unpkg.com/dropzone@5/dist/min/dropzone.min.css');
             $theme->asset()->add('sa2', 'https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bootstrap-4/bootstrap-4.css');
             $theme->asset()->usePath()->add('style', 'css/style.css', [], [], $version);
 

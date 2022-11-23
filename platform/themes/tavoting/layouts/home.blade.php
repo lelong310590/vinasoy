@@ -179,31 +179,78 @@
                 <p class="text-center">Hấp dẫn – Sôi động - Ấn tượng, “Vinasoy – Tự hào 25 năm” hứa hẹn mang đến một thử thách đầy thú vị, nơi tôn vinh tinh thần đồng đội, nơi các thành viên được<br/> thỏa sức thể hiện chất riêng </p>
             </div>
 
-            <div class="proud-carousel owl-carousel owl-theme">
-                @foreach($exes as $news)
-                    <div class="item">
-                        <div class="news-item">
-                            <div class="news-thumbnail">
-                                <a href="{{$news->url}}">
-                                    <img src="{{ RvMedia::getImageUrl($news->image, 'medium', false, RvMedia::getDefaultImage()) }}" alt="{{$news->name}}" class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="news-meta">
-                                <h4 class="news-title text-uppercase text-green">{{$news->name}}</h4>
-                                <div class="news-expert">
-                                    {{$news->description}}
-                                </div>
-                                <div class="text-center news-more">
-                                    <a href="{{$news->url}}" class="read-more">Đọc thêm</a>
+            @php
+                $news = app(\Botble\VideoVoting\Repositories\Interfaces\VideoInterface::class)
+                    ->getModel()
+                    ->whereHas('categories', function ($query) {
+                        $query->where('vv_video_categories.id', 2);
+                     })
+                    ->where('is_featured', true)
+                    ->where('status', 'published')
+                    ->orderBy('created_at', 'desc')
+                    ->first();
+
+                    $listVoted = [];
+
+                    if (auth()->guard('member')->check()) {
+                        $listVoted = auth()->guard('member')->user()->videoVoted()->get()->pluck('id')->toArray();
+                    }
+            @endphp
+
+            @if ($news != null)
+            <div class="proud-video">
+                <div class="col-12 col-md-8 offset-md-2">
+                    <div class="news-item hightlight-item">
+                        <div class="news-thumbnail">
+                            <a href="{{$news->url}}">
+                                <img src="{{ RvMedia::getImageUrl($news->image, 'full', false, RvMedia::getDefaultImage()) }}" alt="{{$news->name}}" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="news-meta">
+                            <div class="video-meta">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="video-meta-wrapper d-flex justify-content-between align-items-center">
+                                            <div class="video-meta-team">
+                                                @php
+                                                    $memberList = $news->member_id;
+                                                    $memberArray = explode(',', $memberList);
+                                                    $members = app(\Botble\Member\Repositories\Interfaces\MemberInterface::class)
+                                                        ->getModel()
+                                                        ->whereIn('id', $memberArray)
+                                                        ->get();
+                                                    $leader = app(\Botble\Member\Repositories\Interfaces\MemberInterface::class)
+                                                        ->getModel()
+                                                        ->whereIn('id', $memberArray)
+                                                        ->first();
+                                                @endphp
+                                                <p><b>Đội tham gia:</b> <span class="text-green">{{$news->team_member_name}}</span></p>
+                                                <p><b>Trưởng nhóm:</b> <span class="text-green">{{$leader->first_name}}</span></p>
+                                                <p><b>Thành viên:</b> <span class="text-green">{{count($memberArray)}} thành viên</span></p>
+                                            </div>
+                                            <div class="video-meta-action d-flex align-items-center">
+                                                <a href="{{$news->url}}">Xem bài thi</a>
+                                                @if (!in_array($news->id, $listVoted))
+                                                    <a href="javascript:;" class="main-button sa-voting" data-video-id="{{$news->id}}">Bình chọn</a>
+                                                @else
+                                                    <a href="javascript:;" class="main-button outline-button sa-devoting" data-video-id="{{$news->id}}">Bỏ bình chọn</a>
+                                                @endif
+                                                <div class="video-meta-like-count">
+                                                    <i class="fa-solid fa-heart"></i> {{number_format($news->vote)}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                @endforeach
+                </div>
             </div>
+            @endif
 
             <div class="proud-more text-center">
-                <a href="#" class="read-more">Khám phá thêm các hình ảnh, video khác</a>
+                <a href="/tu-hao-25-nam" class="read-more">Khám phá thêm các hình ảnh, video khác</a>
             </div>
         </div>
     </div>

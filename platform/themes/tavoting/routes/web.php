@@ -18,6 +18,9 @@ Route::group(['namespace' => 'Theme\TAVoting\Http\Controllers', 'middleware' => 
         Route::post('ajax/video-vote', 'TAVotingController@vote')
             ->name('public.ajax.vote');
 
+        Route::post('ajax/video-devote', 'TAVotingController@devote')
+            ->name('public.ajax.devote');
+
         Route::post('ajax/get-video-thumb', 'TAVotingController@getVideoThumbnail')
             ->name('public.ajax.get-video-thumb');
     });

@@ -39,7 +39,7 @@ class LoginController extends BaseController
      *
      * @var string
      */
-    public $redirectTo  = '/voting';
+    public $redirectTo  = '/';
 
     /**
      * @return \Botble\Theme\Facades\Response|\Response

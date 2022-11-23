@@ -87,5 +87,179 @@
     </div>
 </div>
 
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        function reload() {
+            window.location.reload()
+        }
+
+        $('.sa-devoting').on('click', function () {
+
+            @if (auth('member')->check())
+            const csrf = $('meta[name="csrf-token"]').attr('content');
+            var videoId = $(this).attr('data-video-id');
+            Swal.fire({
+                title: 'Bỏ bình chọn !',
+                text: 'Bạn muốn bỏ bình chọn bài thi này ?',
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonText: 'Yes',
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': csrf
+                        }
+                    });
+                    $.ajax({
+                        url: "{{route('public.ajax.devote')}}",
+                        type: 'POST',
+                        data: {
+                            videoId
+                        },
+                        success: function( response ) {
+                            if (response.error) {
+                                //failed
+                                Swal.fire({
+                                    title: 'Lỗi!',
+                                    text: "Bạn không thể bỏ bình chọn bài thi này. Vui lòng thử lại sau",
+                                    icon: 'error',
+                                    allowOutsideClick: false,
+                                    allowEscapeKey: false
+                                }).then((result) => {
+                                    /* Read more about isConfirmed, isDenied below */
+                                    if (result.isConfirmed) {} {
+                                        reload()
+                                    }
+                                })
+                            } else {
+                                //successs
+                                Swal.fire({
+                                    title: 'Thành công!',
+                                    text: "Bạn đã bỏ bình chọn cho bài thi này!",
+                                    icon: 'success',
+                                    allowOutsideClick: false,
+                                    allowEscapeKey: false
+                                }).then((result) => {
+                                    /* Read more about isConfirmed, isDenied below */
+                                    if (result.isConfirmed) {
+                                        reload()
+                                    }
+                                })
+                            }
+                        },
+                        error: function( err ) {
+                            Swal.fire({
+                                title: 'Lỗi!',
+                                text: "Bạn không thể bỏ bình chọn bài thi này. Vui lòng thử lại sau",
+                                icon: 'error',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            }).then((result) => {
+                                /* Read more about isConfirmed, isDenied below */
+                                if (result.isConfirmed) {
+                                    reload()
+                                }
+                            })
+                        }
+                    });
+                }
+            })
+            @endif
+        })
+
+        $('.sa-voting').on('click', function () {
+
+            @if (auth('member')->check())
+            const csrf = $('meta[name="csrf-token"]').attr('content');
+            var videoId = $(this).attr('data-video-id');
+            Swal.fire({
+                title: 'Bình chọn !',
+                text: 'Bạn muốn bình chọn bài thi này ?',
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonText: 'Yes',
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': csrf
+                        }
+                    });
+                    $.ajax({
+                        url: "{{route('public.ajax.vote')}}",
+                        type: 'POST',
+                        data: {
+                            videoId
+                        },
+                        success: function( response ) {
+                            if (response.error) {
+                                //failed
+                                Swal.fire({
+                                    title: 'Lỗi!',
+                                    text: "Bạn không thể bình chọn bài thi này. Vui lòng thử lại sau",
+                                    icon: 'error',
+                                    allowOutsideClick: false,
+                                    allowEscapeKey: false
+                                }).then((result) => {
+                                    /* Read more about isConfirmed, isDenied below */
+                                    if (result.isConfirmed) {} {
+                                        reload()
+                                    }
+                                })
+                            } else {
+                                //successs
+                                Swal.fire({
+                                    title: 'Cảm ơn!',
+                                    text: "Bạn đã bình chọn cho bài thi này!",
+                                    icon: 'success',
+                                    allowOutsideClick: false,
+                                    allowEscapeKey: false
+                                }).then((result) => {
+                                    /* Read more about isConfirmed, isDenied below */
+                                    if (result.isConfirmed) {
+                                        reload()
+                                    }
+                                })
+                            }
+                        },
+                        error: function( err ) {
+                            Swal.fire({
+                                title: 'Lỗi!',
+                                text: "Bạn không thể bình chọn bài thi này. Vui lòng thử lại sau",
+                                icon: 'error',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            }).then((result) => {
+                                /* Read more about isConfirmed, isDenied below */
+                                if (result.isConfirmed) {
+                                    reload()
+                                }
+                            })
+                        }
+                    });
+                }
+            })
+            @else
+            Swal.fire({
+                title: 'Lưu ý!',
+                html:
+                    'Bạn phải <a href="{{route('public.member.login')}}">đăng nhập</a> để bình chọn bài thi',
+                icon: 'error',
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            })
+            @endif
+        })
+    })
+</script>
+
 </body>
 </html>

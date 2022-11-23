@@ -80,6 +80,8 @@ class Video extends BaseModel
         'guardian_name',
         'guardian_phone',
         'guardian_email',
+        'member_id',
+        'team_member_name'
     ];
 
     /**

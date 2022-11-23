@@ -198,6 +198,33 @@ class TAVotingController extends PublicController
     }
 
     /**
+     * @param Request $request
+     * @param BaseHttpResponse $response
+     * @return BaseHttpResponse
+     */
+    public function devote(
+        Request $request,
+        BaseHttpResponse $response
+    )
+    {
+        if (!$request->ajax()) {
+            return $response->setCode(404);
+        }
+
+        if (!auth('member')->check()) {
+            return $response->setCode(404);
+        }
+
+        //Process vote
+        $videoId = $request->get('videoId');
+        app(VideoInterface::class)->getModel()->find($videoId)->decrement('vote', 1);
+        $loggedUser = auth('member')->user();
+        $loggedUser->videoVoted()->detach($videoId);
+
+        return $response->setCode(200);
+    }
+
+    /**
      * @param $slug
      * @param Request $request
      * @param BaseHttpResponse $response
@@ -305,7 +332,12 @@ class TAVotingController extends PublicController
             $listVoted = auth()->guard('member')->user()->videoVoted()->get()->pluck('id')->toArray();
         }
 
-        return Theme::scope('video', compact('video', 'listVoted'))->render();
+        if ($video->first_category->id != 1) {
+            return Theme::scope('video-proud', compact('video', 'listVoted'))->render();
+        } else {
+            return Theme::scope('video', compact('video', 'listVoted'))->render();
+        }
+
     }
 
     /**
