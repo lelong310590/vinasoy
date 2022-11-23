@@ -38,7 +38,7 @@
                 <div class="home-news-title text-center">
                     <h4 class="text-green dancing">Sự kiện & tin tức</h4>
                     <p>Hành trình Vinasoy 25 năm - Nâng tầm dinh dưỡng vàng từ thực vật</p>
-                    <a href="" class="text-orange">Xem tất cả</a>
+                    <a href="/tin-tuc-cap-nhat" class="text-orange">Xem tất cả</a>
                 </div>
 
                 <div class="carousel-wrapper">
@@ -64,7 +64,7 @@
                             </div>
                         @endforeach
                     </div>
-                    <div class="carousel-navigation">
+                    <div class="carousel-navigation d-md-block d-none">
                         <a href="javascript:;" class="news-carousel-navigation carousel-left"><i class="fa-solid fa-circle-arrow-left"></i></a>
                         <a href="javascript:;" class="news-carousel-navigation carousel-right"><i class="fa-solid fa-circle-arrow-right"></i></a>
                     </div>
@@ -159,7 +159,7 @@
                         @endforeach
                     </div>
 
-                    <div class="carousel-navigation">
+                    <div class="carousel-navigation d-md-block d-none">
                         <a href="javascript:;" class="news-carousel-navigation carousel-left"><i class="fa-solid fa-circle-arrow-left"></i></a>
                         <a href="javascript:;" class="news-carousel-navigation carousel-right"><i class="fa-solid fa-circle-arrow-right"></i></a>
                     </div>
@@ -210,7 +210,7 @@
                             <div class="video-meta">
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="video-meta-wrapper d-flex justify-content-between align-items-center">
+                                        <div class="video-meta-wrapper d-md-flex justify-content-between align-items-center">
                                             <div class="video-meta-team">
                                                 @php
                                                     $memberList = $news->member_id;

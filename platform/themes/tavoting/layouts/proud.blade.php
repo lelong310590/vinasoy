@@ -174,7 +174,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-12 col-md-7">
-                                                <div class="video-meta-wrapper d-flex justify-content-between align-items-center">
+                                                <div class="video-meta-wrapper d-md-flex justify-content-between align-items-center">
                                                     <div class="video-meta-team">
                                                         @php
                                                             $memberList = $news->member_id;

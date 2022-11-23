@@ -1,0 +1,154 @@
+@media screen and (max-width: 768px) {
+    .main-navigation {
+        position: fixed;
+        width: 300px;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        z-index: 9999;
+        background: linear-gradient(252.44deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(107.56deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+        /* blur */
+        backdrop-filter: blur(50px);
+        /* Note: backdrop-filter has minimal browser support */
+        display: none;
+        ul.menu {
+            display: block;
+            li {
+                width: 100%;
+                border-bottom: 1px solid #ccc;
+                &.active {
+                    background: var(--color-1st);
+                    a {
+                        padding: 15px;
+                        background: none
+                    }
+                }
+                a {
+                    padding: 15px;
+                    font-size: 16px;
+                    display: block;
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    .sign-in-button {
+        padding: 15px;
+        font-size: 16px;
+        display: block;
+        margin: 0;
+        background: var(--color-2nd);
+        color: #fff;
+    }
+
+    .close-menu {
+        padding: 15px;
+        font-size: 16px;
+        display: block;
+        margin: 0;
+    }
+
+    .flashback .flashback-wrapper {
+        flex-direction: column;
+    }
+
+    .exe-hightlight-wrapper .exe-hightlight-wrapper-inner {
+        flex-direction: column;
+        justify-content: start;
+    }
+
+    .exe-carousel-wrapper {
+        margin: 0;
+    }
+
+    .exe-hightlight-wrapper {
+        position: relative;
+    }
+
+    a.read-more {
+        padding: 13px;
+    }
+
+    .footer-logo {
+        text-align: center;
+    }
+
+    .footer-col {
+        margin-top: 25px
+    }
+
+    .news-meta-title h4 {
+        font-size: 45px;
+    }
+
+    .story-hero-detail {
+        margin-top: 0;
+    }
+
+    .exe-hightlight-wrapper .exe-image {
+        margin-right: 0;
+        margin-bottom: 25px;
+    }
+
+    .video-detail-content-description {
+        flex-direction: column;
+    }
+
+    .story-rule-item {
+        margin-bottom: 35px;
+        height: unset;
+    }
+
+    .story-rule-item .story-rule-number {
+        font-size: 24px;
+        top: 0;
+        span {
+            font-size: 50px;
+        }
+    }
+
+    .mobile-menu {
+        font-size: 20px;
+        color: var(--color-1st)
+    }
+
+    .mobile-nav {
+        .member-navigation {
+            width: 100%;
+            border-bottom: 1px solid #ccc;
+            padding: 15px;
+            font-size: 16px;
+            display: block;
+        }
+    }
+
+    .member-navigation .member-navigation-dropdown {
+        display: block;
+        position: relative;
+        top: unset;
+        left: unset;
+        background: none;
+        border-radius: 0;
+        padding: 26px 30px 0 0
+    }
+
+    .dashboard-wrapper {
+        padding: 95px 0;
+    }
+
+    .dashboard-navigation {
+        margin-bottom: 25px;
+        padding: 15px;
+        border-radius: 5px;
+    }
+
+    .dashboard-right {
+        padding: 15px;
+        border-radius: 5px;
+    }
+
+    .dashboard-right .dashboard-right-content {
+        flex-direction: column;
+    }
+}

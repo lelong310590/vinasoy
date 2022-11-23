@@ -26,7 +26,7 @@
                             </div>
 
                             <div class="video-detail-intro">
-                                <div class="video-meta-wrapper d-flex justify-content-between align-items-center">
+                                <div class="video-meta-wrapper d-md-flex justify-content-between align-items-center">
                                     <div class="video-meta-team">
                                         @php
                                             $memberList = $video->member_id;
@@ -66,7 +66,7 @@
                                     <img src="{{ RvMedia::getImageUrl($video->image, 'full', false, RvMedia::getDefaultImage()) }}" alt="" class="img-fluid">
                                 </div>
                             </div>
-                            <div class="carousel-navigation">
+                            <div class="carousel-navigation d-none d-md-block">
                                 <a href="javascript:;" class="news-carousel-navigation carousel-left"><i class="fa-solid fa-circle-arrow-left"></i></a>
                                 <a href="javascript:;" class="news-carousel-navigation carousel-right"><i class="fa-solid fa-circle-arrow-right"></i></a>
                             </div>

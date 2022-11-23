@@ -1,7 +1,6 @@
 @import 'variable';
 @import 'main';
-@import 'desktop';
-@import 'mobile';
+
 
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
 
@@ -914,3 +913,14 @@ a.read-more {
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+.news-content {
+    img {
+        display: block;
+        max-width: 100%;
+        margin: 10px auto;
+    }
+}
+
+@import 'desktop';
+@import 'mobile';

@@ -51,8 +51,35 @@
                             'view'    => 'main-menu',
                         ])
                     !!}
+
+                    <div class="d-md-none d-block mobile-nav">
+                        @if (auth('member')->check())
+                            <div class="member-navigation">
+                                <a href="javascript:;"><b>Xin chào,</b> {{auth('member')->user()->first_name}}</a>
+                                <div class="member-navigation-dropdown">
+                                    <ul>
+                                        <li><a href="{{route('public.member.dashboard')}}">Thông tin tài khoản</a></li>
+                                        <li><a href="">Chuyện bây giờ mới kể</a></li>
+                                        <li><a href="">Tự hào 25 năm</a></li>
+                                        <li><a href="javascript:;" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Đăng xuất</a></li>
+                                    </ul>
+                                    <form id="logout-form" action="{{ route('public.member.logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </div>
+                        @else
+                            <a href="javascript:;" class="sign-in-button">Đăng nhập</a>
+                        @endif
+                    </div>
+                    <a href="javascript:;" class="close-menu">Đóng</a>
                 </div>
-                <div class="action-navigation {{auth('member')->check() ? 'logged-in' : ''}}">
+
+                <div class="action-navigation d-md-none d-block">
+                    <a href="javascript:;" class="mobile-menu"><i class="fa-solid fa-bars"></i></a>
+                </div>
+
+                <div class="action-navigation d-none d-md-block {{auth('member')->check() ? 'logged-in' : ''}}">
                     @if (auth('member')->check())
                         <div class="member-navigation">
                             <a href="javascript:;"><b>Xin chào,</b> {{auth('member')->user()->first_name}}</a>

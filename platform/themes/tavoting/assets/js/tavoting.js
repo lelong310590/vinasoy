@@ -137,6 +137,14 @@ $(document).ready(function () {
         $('.story-form').css('display', 'flex');
     })
 
+    body.on('click', '.mobile-menu', function () {
+        $('.main-navigation').css('display', 'block');
+    })
+
+    body.on('click', '.close-menu', function () {
+        $('.main-navigation').css('display', 'none');
+    })
+
     if ($('#dropzone-item').length > 0) {
         $("#dropzone-item").dropzone({ url: "/file/post" });
     }

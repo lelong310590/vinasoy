@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-12 col-md-6">
                     <div class="footer-logo">
-                        <a href="">
+                        <a href="{{route('public.index')}}">
                             <img src="{{Theme::asset()->url('images/footer-logo.png')}}" alt="" class="img-fluid">
                         </a>
                     </div>
