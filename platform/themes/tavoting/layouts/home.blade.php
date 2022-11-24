@@ -64,7 +64,7 @@
                             </div>
                         @endforeach
                     </div>
-                    <div class="carousel-navigation d-md-block d-none">
+                    <div class="carousel-navigation d-md-flex d-none">
                         <a href="javascript:;" class="news-carousel-navigation carousel-left"><i class="fa-solid fa-circle-arrow-left"></i></a>
                         <a href="javascript:;" class="news-carousel-navigation carousel-right"><i class="fa-solid fa-circle-arrow-right"></i></a>
                     </div>
@@ -159,7 +159,7 @@
                         @endforeach
                     </div>
 
-                    <div class="carousel-navigation d-md-block d-none">
+                    <div class="carousel-navigation d-md-flex d-none">
                         <a href="javascript:;" class="news-carousel-navigation carousel-left"><i class="fa-solid fa-circle-arrow-left"></i></a>
                         <a href="javascript:;" class="news-carousel-navigation carousel-right"><i class="fa-solid fa-circle-arrow-right"></i></a>
                     </div>
