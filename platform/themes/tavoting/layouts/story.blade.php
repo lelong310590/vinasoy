@@ -189,12 +189,16 @@
                         ->orWhere('first_name', 'like', '%'.Request::get('k').'%')
                         ->first();
 
-                $exes = $exesQuery
+                if ($member == null) {
+                    $exes = [];
+                } else {
+                    $exes = $exesQuery
                         ->where('member_id', 'like', '%'.$member->id.'%')
                         ->where('status', 'published')
                         ->orderBy('created_at', 'desc')
                         ->limit(10)
                         ->get();
+                }
             } else {
                 $exes = $exesQuery->where('status', 'published')
                         ->orderBy('created_at', 'desc')
