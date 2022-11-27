@@ -165,7 +165,7 @@
                     </div>
 
                     <div class="exe-more text-center">
-                        <a href="/chuyen-chua-ke" class="read-more">Khám phá thêm các câu chuyện khác</a>
+                        <a href="/chuyen-bay-gio-moi-ke" class="read-more">Khám phá thêm các câu chuyện khác</a>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 {!! Theme::partial('header') !!}
 
 <section class="story-hero">
-    <img src="{{Theme::asset()->url('images/story-bg.png')}}" alt="" class="img-fluid">
+    <img src="{{Theme::asset()->url('images/story-bg.png')}}" alt="" class="img-fluid mx-auto">
     <div class="story-hero-content">
         <div class="container">
             <div class="story-hero-detail-wrapper d-flex justify-content-center">

@@ -35,6 +35,8 @@
 <body @if (BaseHelper::siteLanguageDirection() == 'rtl') dir="rtl" @endif>
 {!! apply_filters(THEME_FRONT_BODY, null) !!}
 
+<div id="alert-container"></div>
+
 <header class="header w-100" id="header">
     <div class="container">
         <div class="main-header w-100 d-flex justify-content-between align-items-center">
@@ -103,3 +105,4 @@
         </div>
     </div>
 </header>
+

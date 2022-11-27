@@ -30,6 +30,7 @@
                             <div class="footer-col">
                                 <h4>Liên hệ</h4>
                                 <p>02 Nguyễn Chí Thanh, phường Quảng Phú, thành phố Quảng Ngãi</p>
+                                <p>Email: <a href="mailto:ttnb: ttnb@vinasoy.com">ttnb: ttnb@vinasoy.com</a></p>
                                 <div class="copyright">
                                     Bản quyền © Vinasoy 2022
                                 </div>
@@ -260,6 +261,43 @@
         })
     })
 </script>
+
+@if (session()->has('success_msg') || session()->has('error_msg') || (isset($errors) && $errors->count() > 0) || isset($error_msg))
+    <script type="text/javascript">
+
+        window.showAlert = function (messageType, message) {
+            if (messageType && message !== '') {
+                var alertId = Math.floor(Math.random() * 1000);
+                var html = "<div class=\"alert ".concat(messageType, " alert-dismissible\" id=\"").concat(alertId, "\">\n                <span class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"close\"></span>\n                <i class=\"fi-rs-") + (messageType === 'alert-success' ? 'check' : 'cross') + " message-icon\"></i>\n                ".concat(message, "\n            </div>");
+                $('#alert-container').append(html).ready(function () {
+                    window.setTimeout(function () {
+                        $("#alert-container #".concat(alertId)).remove();
+                    }, 6000);
+                });
+            }
+        };
+
+        $(document).ready(function () {
+            @if (session()->has('success_msg'))
+            window.showAlert('alert-success', '{{ session('success_msg') }}');
+            @endif
+
+            @if (session()->has('error_msg'))
+            window.showAlert('alert-danger', '{{ session('error_msg') }}');
+            @endif
+
+            @if (isset($error_msg))
+            window.showAlert('alert-danger', '{{ $error_msg }}');
+            @endif
+
+            @if (isset($errors))
+            @foreach ($errors->all() as $error)
+            window.showAlert('alert-danger', '{!! clean($error) !!}');
+            @endforeach
+            @endif
+        });
+    </script>
+    @endif
 
 </body>
 </html>
