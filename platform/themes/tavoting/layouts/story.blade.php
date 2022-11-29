@@ -97,7 +97,7 @@
         <div class="story-cta-title text-center">
             <h4 class="text-green dancing">Tham gia ngay!</h4>
             <p>Để tham gia chia sẻ câu chuyện, bạn hãy click vào nút bên dưới và làm theo hướng dẫn.</p>
-            <a href="javascript:;" class="read-more open-story-form">Chi sẻ câu chuyện <i class="fa-sharp fa-solid fa-down"></i></a>
+            <a href="javascript:;" class="read-more open-story-form">Chia sẻ câu chuyện <i class="fa-sharp fa-solid fa-down"></i></a>
             <p><b>Thời hạn nhận bài: 30/11/2022</b></p>
         </div>
 

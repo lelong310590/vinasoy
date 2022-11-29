@@ -30,7 +30,7 @@
                             <div class="footer-col">
                                 <h4>Liên hệ</h4>
                                 <p>02 Nguyễn Chí Thanh, phường Quảng Phú, thành phố Quảng Ngãi</p>
-                                <p>Email: <a href="mailto:ttnb: ttnb@vinasoy.com">ttnb: ttnb@vinasoy.com</a></p>
+                                <p>Email: <a href="mailto:ttnb@vinasoy.com">ttnb@vinasoy.com</a></p>
                                 <div class="copyright">
                                     Bản quyền © Vinasoy 2022
                                 </div>

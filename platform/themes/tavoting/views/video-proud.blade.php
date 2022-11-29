@@ -66,7 +66,7 @@
                                     <img src="{{ RvMedia::getImageUrl($video->image, 'full', false, RvMedia::getDefaultImage()) }}" alt="" class="img-fluid">
                                 </div>
                             </div>
-                            <div class="carousel-navigation d-none d-md-block">
+                            <div class="carousel-navigation d-none d-md-flex">
                                 <a href="javascript:;" class="news-carousel-navigation carousel-left"><i class="fa-solid fa-circle-arrow-left"></i></a>
                                 <a href="javascript:;" class="news-carousel-navigation carousel-right"><i class="fa-solid fa-circle-arrow-right"></i></a>
                             </div>
