@@ -91,6 +91,7 @@ class MemberServiceProvider extends ServiceProvider
             EmailHandler::addTemplateSettings(MEMBER_MODULE_SCREEN_NAME, config('plugins.member.email', []));
         });
 
+        $this->app->register(CommandServiceProvider::class);
         $this->app->register(EventServiceProvider::class);
 
         add_filter(IS_IN_ADMIN_FILTER, [$this, 'setInAdmin'], 24);

@@ -79,6 +79,7 @@ class MemberTable extends TableAbstract
             'last_name',
             'email',
             'created_at',
+            'hrm'
         ]);
 
         return $this->applyScopes($query);
@@ -98,8 +99,8 @@ class MemberTable extends TableAbstract
                 'title' => trans('core/base::tables.name'),
                 'class' => 'text-left',
             ],
-            'email'      => [
-                'title' => trans('core/base::tables.email'),
+            'hrm'      => [
+                'title' => 'Mã HRM',
                 'class' => 'text-left',
             ],
             'created_at' => [
@@ -141,10 +142,10 @@ class MemberTable extends TableAbstract
                 'type'     => 'text',
                 'validate' => 'required|max:120',
             ],
-            'email'      => [
-                'title'    => trans('core/base::tables.email'),
+            'hrm'      => [
+                'title'    => 'Mã HRM',
                 'type'     => 'text',
-                'validate' => 'required|max:120|email',
+                'validate' => 'required|max:120',
             ],
             'created_at' => [
                 'title' => trans('core/base::tables.created_at'),
