@@ -77,7 +77,7 @@
     <div class="section-exe">
         <div class="container">
             <div class="exe-title">
-                <h4 class="text-center text-green dancing">Vinasoy-Chuyện bây giờ mới kể</h4>
+                <h4 class="text-center text-green dancing">Chuyện bây giờ mới kể</h4>
                 <p class="text-center">Bạn biết không? Chẳng điều gì kết nối cảm xúc mạnh mẽ bằng những câu chuyện. Và đặc biệt hơn khi đó là những câu chuyện của riêng mỗi người...</p>
             </div>
         </div>
@@ -121,7 +121,7 @@
                     <div class="container">
                         <div class="exe-hightlight-wrapper-inner">
                             <div class="exe-image">
-                                <img src="{{ RvMedia::getImageUrl($hightLightExe->image, 'full', false, RvMedia::getDefaultImage()) }}" alt="" class="img-fluid">
+                                <img src="{{ RvMedia::getImageUrl($hightLightExe->image, 'square', false, RvMedia::getDefaultImage()) }}" alt="" class="img-fluid">
                             </div>
                             <div class="ext-content">
                                 <h4 class="text-orange text-uppercase">{{$hightLightExe->name}}</h4>

@@ -71,6 +71,11 @@ if (defined('THEME_MODULE_SCREEN_NAME')) {
                     'uses' => 'PublicController@getDashboard',
                 ]);
 
+                Route::get('challenge/{slug}', [
+                    'as'   => 'challenge',
+                    'uses' => 'PublicController@getChallenger',
+                ]);
+
                 Route::get('settings', [
                     'as'   => 'settings',
                     'uses' => 'PublicController@getSettings',

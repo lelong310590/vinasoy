@@ -3,6 +3,7 @@
 namespace Botble\Member\Http\Controllers;
 
 use Assets;
+use Botble\Base\Enums\BaseStatusEnum;
 use Botble\Base\Http\Responses\BaseHttpResponse;
 use Botble\Media\Chunks\Exceptions\UploadMissingFileException;
 use Botble\Media\Chunks\Handler\DropZoneUploadHandler;
@@ -15,6 +16,9 @@ use Botble\Member\Http\Requests\UpdatePasswordRequest;
 use Botble\Member\Http\Resources\ActivityLogResource;
 use Botble\Member\Repositories\Interfaces\MemberActivityLogInterface;
 use Botble\Member\Repositories\Interfaces\MemberInterface;
+use Botble\VideoVoting\Models\VideoCategory;
+use Botble\VideoVoting\Repositories\Interfaces\VideoCategoryInterface;
+use Botble\VideoVoting\Repositories\Interfaces\VideoInterface;
 use Exception;
 use File;
 use Illuminate\Contracts\Config\Repository;
@@ -25,6 +29,7 @@ use Illuminate\Support\Facades\Validator;
 use RvMedia;
 use SeoHelper;
 use Theme;
+use SlugHelper;
 
 class PublicController extends Controller
 {
@@ -44,6 +49,16 @@ class PublicController extends Controller
     protected $fileRepository;
 
     /**
+     * @var VideoCategoryInterface
+     */
+    protected $challengeCategoryRepository;
+
+    /**
+     * @var VideoInterface
+     */
+    protected $videoRepository;
+
+    /**
      * PublicController constructor.
      * @param Repository $config
      * @param MemberInterface $memberRepository
@@ -54,11 +69,15 @@ class PublicController extends Controller
         Repository $config,
         MemberInterface $memberRepository,
         MemberActivityLogInterface $memberActivityLogRepository,
-        MediaFileInterface $fileRepository
+        MediaFileInterface $fileRepository,
+        VideoCategoryInterface $challengeCategoryRepository,
+        VideoInterface $videoRepository
     ) {
         $this->memberRepository = $memberRepository;
         $this->activityLogRepository = $memberActivityLogRepository;
         $this->fileRepository = $fileRepository;
+        $this->challengeCategoryRepository = $challengeCategoryRepository;
+        $this->videoRepository = $videoRepository;
 
         Assets::setConfig($config->get('plugins.member.assets', []));
     }
@@ -73,6 +92,31 @@ class PublicController extends Controller
         SeoHelper::setTitle($user->name);
 
         return Theme::scope('member.dashboard', compact('user'))->render();
+    }
+
+    public function getChallenger($s)
+    {
+        $slug = SlugHelper::getSlug($s, SlugHelper::getPrefix(VideoCategory::class));
+
+        if (!$slug) {
+            abort(404);
+        }
+
+        $condition = [
+            'id'     => $slug->reference_id,
+            'status' => BaseStatusEnum::PUBLISHED,
+        ];
+
+        $challengeCategory = $this->challengeCategoryRepository->getFirstBy($condition);
+
+        $post = $this->videoRepository->getModel()
+            ->whereHas('categories', function ($q) use ($challengeCategory) {
+                $q->where('vv_video_categories.id', $challengeCategory->id);
+            })
+            ->where('')
+            ->paginate(6);
+
+        dd($post);
     }
 
     /**

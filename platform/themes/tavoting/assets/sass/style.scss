@@ -217,7 +217,7 @@ a.read-more {
             overflow: hidden;
         }
         .news-expert {
-            height: 60px;
+            height: 67px;
             overflow: hidden;
         }
         .news-more {
@@ -264,17 +264,20 @@ a.read-more {
     .exe-hightlight-wrapper-inner {
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
     }
     .exe-image {
         flex: 0 0 35%;
         margin-right: 30px;
         img {
             border-radius: 129px 30px 30px 30px;
+            width: 100%;
         }
     }
     .ext-content {
         flex: 1;
         padding-top: 65px;
+        width: calc(65% - 35px);
         .exe-detail {
             height: 295px;
             overflow: hidden;
@@ -287,6 +290,7 @@ a.read-more {
     .news-thumbnail {
         padding: 40px;
         overflow: hidden;
+        min-height: 247.5px;
         img {
             border-radius: 30px;
         }
@@ -301,6 +305,7 @@ a.read-more {
     .news-thumbnail {
         padding: 40px;
         overflow: hidden;
+        min-height: 255px;
         img {
             border-radius: 30px;
         }

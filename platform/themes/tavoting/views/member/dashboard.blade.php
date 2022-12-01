@@ -2,39 +2,7 @@
     <div class="container">
         <div class="dashboard-content">
             <div class="row">
-                <div class="col-12 col-md-4">
-                    <div class="dashboard-navigation">
-                        <div class="avatar">
-                            <img src="{{Theme::asset()->url('images/avatar.png')}}" alt="" class="img-fluid">
-                            <div class="avatar-info">
-                                <h4 class="text-green">{{$user->first_name}}</h4>
-                                <p>HRM: {{$user->hrm}}</p>
-                            </div>
-                        </div>
-                        <div class="dashboard-title-main">
-                            Thông tin tài khoản
-                        </div>
-                        <div class="dashboard-list">
-                            <div class="dashboard-list-title text-green text-uppercase">
-                                Bài thi của tôi
-                            </div>
-                            <ul>
-                                <li><a href="">Vinasoy, chuyện bây giờ mới kể</a></li>
-                                <li><a href="">Tự hào 25 năm - <span>Vòng 1</span></a></li>
-                                <li><a href="">Tự hào 25 năm - <span>Vòng 2</span></a></li>
-                            </ul>
-                        </div>
-                        <div class="dashboard-list">
-                            <div class="dashboard-list-title text-green text-uppercase">
-                                Bài tôi đã bình chọn
-                            </div>
-                            <ul>
-                                <li><a href="">Tự hào 25 năm - <span>Vòng 1</span></a></li>
-                                <li><a href="">Tự hào 25 năm - <span>Vòng 2</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @include(Theme::getThemeNamespace() . '::views/member/sidebar')
 
                 <div class="col-12 col-md-8">
                     <div class="dashboard-right">

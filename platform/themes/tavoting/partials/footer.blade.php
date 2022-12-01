@@ -51,7 +51,7 @@
         <div class="login-form text-center">
             <h4 class="text-green dancing">Đăng nhập</h4>
             <p>Vui lòng nhập tên đăng nhập (Mã HRM) và mật khẩu của bạn (ngày/tháng/năm sinh).<br/>
-                Ví dụ: bạn sinh ngày 19/08/1980, nhập mật khẩu là 190880</p>
+                Ví dụ: bạn sinh ngày 19/08/1980, nhập mật khẩu là 19081980</p>
             <form method="POST" action="{{ route('public.member.login') }}">
                 @csrf
                 <div class="form-group">

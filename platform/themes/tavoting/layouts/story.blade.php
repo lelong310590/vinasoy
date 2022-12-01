@@ -8,13 +8,13 @@
                 <div class="story-hero-detail text-center">
                     Bạn biết không? Chẳng điều gì kết nối cảm xúc mạnh mẽ bằng những câu chuyện. Và đặc biệt hơn khi đó là những câu chuyện của riêng mỗi người.
                     <br/><br/>
-                    Với lý do đó, <b>“Vinasoy – Chuyện bây giờ mới kể”</b> sẽ là cơ hội tuyệt vời để bạn bày tỏ lòng mình, để một lần được
+                    Với lý do đó, <b>“Chuyện bây giờ mới kể”</b> sẽ là cơ hội tuyệt vời để bạn bày tỏ lòng mình, để một lần được
                     “du hành” ngược dòng thời gian mà sống trọn những khoảnh khắc đáng nhớ trong suốt hành trình đồng hành và gắn bó
                     dưới “mái nhà” Vinasoy.
                     <br/><br/>
                     Dù bạn là ai, ở cương vị nào, câu chuyện của bạn sẽ là duy nhất, là một “mảnh ghép” đặc biệt trên hành trình trưởng thành của Vinasoy, là nguồn cảm hứng mạnh mẽ, tiếp thêm tin yêu và nhiệt huyết cho mỗi người.
                     <br/><br/>
-                    Hãy một lần tự tin “kể hết” cùng <b>“Vinasoy – Chuyện bây giờ mới kể”</b> nhé!
+                    Hãy một lần tự tin “kể hết” cùng <b>“Chuyện bây giờ mới kể”</b> nhé!
                 </div>
             </div>
             <div class="story-hero-more text-center">
@@ -61,7 +61,7 @@
                                     <div class="story-rule-title text-green text-uppercase">GỬI PHIẾU TRỰC TIẾP</div>
                                     <div class="story-rule-content">
                                         BTC bố trí các phiếu điền câu chuyện tại<br/>
-                                        Bức tường Vinasoy – Chuyện bây giờ mới kể<br/>
+                                        Bức tường Chuyện bây giờ mới kể<br/>
                                         CB-CNV điền phiếu và bỏ vào hòm thư<br/>
                                     </div>
                                 </div>
@@ -149,7 +149,7 @@
             <div class="container">
                 <div class="exe-hightlight-wrapper-inner">
                     <div class="exe-image">
-                        <img src="{{ RvMedia::getImageUrl($hightLightExe->image, 'full', false, RvMedia::getDefaultImage()) }}" alt="" class="img-fluid">
+                        <img src="{{ RvMedia::getImageUrl($hightLightExe->image, 'square', false, RvMedia::getDefaultImage()) }}" alt="" class="img-fluid">
                     </div>
                     <div class="ext-content">
                         <h4 class="text-orange text-uppercase">{{$hightLightExe->name}}</h4>
@@ -214,7 +214,7 @@
                     <div class="news-item">
                         <div class="news-thumbnail">
                             <a href="{{$news->url}}">
-                                <img src="{{ RvMedia::getImageUrl($news->image, 'medium', false, RvMedia::getDefaultImage()) }}" alt="{{$news->name}}" class="img-fluid">
+                                <img src="{{ RvMedia::getImageUrl($news->image, 'square', false, RvMedia::getDefaultImage()) }}" alt="{{$news->name}}" class="img-fluid">
                             </a>
                         </div>
                         <div class="news-meta text-center">

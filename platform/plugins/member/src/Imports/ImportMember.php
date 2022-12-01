@@ -28,8 +28,8 @@ class ImportMember implements ToModel, WithProgressBar
         return new Member([
             'hrm' => $row[0],
             'first_name' => $row[1],
-            'password' => $password,
-            'department' => bcrypt($row[3]),
+            'password' => bcrypt($password),
+            'department' => $row[3],
             'area' => bcrypt($row[4]),
             'dob' => $row[2]
         ]);

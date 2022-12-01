@@ -10,6 +10,7 @@
 namespace Botble\Member\Commands;
 
 use Botble\Member\Imports\ImportMember;
+use Botble\Member\Models\Member;
 use Illuminate\Console\Command;
 
 class ImportMemberCommand extends Command
