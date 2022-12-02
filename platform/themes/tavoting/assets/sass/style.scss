@@ -21,7 +21,7 @@
 }
 
 body {
-    font-size: 15px;
+    font-size: 16px;
     font-family: chevin, sans-serif;
     font-weight: 400;
 }
@@ -281,6 +281,10 @@ a.read-more {
         .exe-detail {
             height: 295px;
             overflow: hidden;
+            &.exe-detail-full {
+                height: unset;
+                overflow: unset;
+            }
         }
     }
 }

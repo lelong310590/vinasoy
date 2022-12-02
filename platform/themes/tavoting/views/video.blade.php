@@ -25,7 +25,7 @@
                                 </div>
                             </div>
                             <h1 class="text-orange text-uppercase">{{$video->name}}</h1>
-                            <div class="exe-detail">
+                            <div class="exe-detail exe-detail-full">
                                 {!! clean($video->content) !!}
                             </div>
                             <div class="exe-sharing d-flex justify-content-end align-center">

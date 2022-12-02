@@ -108,15 +108,16 @@ class PublicController extends Controller
         ];
 
         $challengeCategory = $this->challengeCategoryRepository->getFirstBy($condition);
+        $user = auth('member')->user();
 
         $post = $this->videoRepository->getModel()
             ->whereHas('categories', function ($q) use ($challengeCategory) {
                 $q->where('vv_video_categories.id', $challengeCategory->id);
             })
-            ->where('')
+            ->where('member_id', 'like', '%'.$user->id.'%')
             ->paginate(6);
 
-        dd($post);
+        return Theme::scope('member.challenge', compact('post', 'user'))->render();
     }
 
     /**
