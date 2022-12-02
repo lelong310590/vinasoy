@@ -196,14 +196,12 @@
                         ->where('member_id', 'like', '%'.$member->id.'%')
                         ->where('status', 'published')
                         ->orderBy('created_at', 'desc')
-                        ->limit(10)
-                        ->get();
+                        ->paginate(16);
                 }
             } else {
                 $exes = $exesQuery->where('status', 'published')
                         ->orderBy('created_at', 'desc')
-                        ->limit(10)
-                        ->get();
+                        ->paginate(16);
             }
         @endphp
 
@@ -229,6 +227,10 @@
                     </div>
                 </div>
                 @endforeach
+            </div>
+
+            <div class="pagination-wrapper text-center">
+                {{$exes->withQueryString()->links() }}
             </div>
         </div>
     </div>

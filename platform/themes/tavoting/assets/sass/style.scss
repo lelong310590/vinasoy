@@ -217,7 +217,7 @@ a.read-more {
             overflow: hidden;
         }
         .news-expert {
-            height: 67px;
+            height: 70px;
             overflow: hidden;
         }
         .news-more {
@@ -977,6 +977,25 @@ a.read-more {
         display: block;
         max-width: 100%;
         margin: 10px auto;
+    }
+}
+
+.pagination-wrapper {
+    ul.pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 35px;
+        .page-item.active {
+            .page-link {
+                color: var(--color-2nd);
+                background: none;
+            }
+        }
+        .page-link {
+            border: none;
+            font-weight: 700;
+            color: #222;
+        }
     }
 }
 

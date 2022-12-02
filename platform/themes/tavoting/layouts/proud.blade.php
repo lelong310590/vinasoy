@@ -139,16 +139,14 @@
                         ->where('member_id', 'like', '%'.$member->id.'%')
                         ->where('status', 'published')
                         ->orderBy('created_at', 'desc')
-                        ->limit(16)
-                        ->get();
+                        ->pagiate(16);
                 }
 
 
             } else {
                 $exes = $exesQuery->where('status', 'published')
                         ->orderBy('created_at', 'desc')
-                        ->limit(16)
-                        ->get();
+                        ->pagiate(16);
             }
 
             $listVoted = [];
@@ -267,6 +265,10 @@
 
                     @endif
                 @endforeach
+
+                <div class="pagination-wrapper text-center">
+                    {{$exes->withQueryString()->links() }}
+                </div>
             </div>
         </div>
     </div>

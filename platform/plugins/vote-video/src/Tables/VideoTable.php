@@ -89,9 +89,6 @@ class VideoTable extends TableAbstract
             ->editColumn('image', function ($item) {
                 return $this->displayThumbnail($item->image);
             })
-            ->editColumn('age_group', function ($item) {
-                return $item->age_group;
-            })
             ->editColumn('vote', function ($item) {
                 return $item->vote;
             })
@@ -145,6 +142,7 @@ class VideoTable extends TableAbstract
                 'categories' => function ($query) {
                     $query->select(['vv_video_categories.id', 'vv_video_categories.name']);
                 },
+                'author'
             ])
             ->select([
                 'id',
@@ -154,7 +152,6 @@ class VideoTable extends TableAbstract
                 'status',
                 'updated_at',
                 'youtube_link',
-                'age_group',
                 'vote'
             ])
             ->orderBy('created_at', 'desc');
@@ -180,16 +177,12 @@ class VideoTable extends TableAbstract
                 'title' => trans('core/base::tables.name'),
                 'class' => 'text-left',
             ],
-            'age_group'       => [
-                'title' => 'Age',
-                'class' => 'text-left',
-            ],
             'youtube_link'       => [
                 'title' => 'Link Video',
                 'class' => 'text-left',
             ],
             'vote'       => [
-                'title' => 'Vote',
+                'title' => 'Lượt bình chọn',
                 'class' => 'text-left',
             ],
             'updated_at' => [
