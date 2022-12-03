@@ -1,9 +1,10 @@
 @php
     $memberList = $video->member_id;
     $memberArray = explode(',', $memberList);
+
     $members = app(\Botble\Member\Repositories\Interfaces\MemberInterface::class)
         ->getModel()
-        ->whereIn('id', $memberArray)
+        ->whereIn('hrm', $memberArray)
         ->get();
 @endphp
 <div class="exe-detail-wrapper">
