@@ -196,6 +196,19 @@ class VideoController extends BaseController
     }
 
     /**
+     * @param $id
+     * @param VideoTable $dataTable
+     * @return \Illuminate\Http\JsonResponse|View
+     * @throws Throwable
+     */
+    public function viewVote($id, VideoTable $dataTable)
+    {
+        page_title()->setTitle(trans('plugins/vote-video::video.menu_name'));
+
+        return $dataTable->renderTable();
+    }
+
+    /**
      * @param Request $request
      * @param BaseHttpResponse $response
      * @return BaseHttpResponse

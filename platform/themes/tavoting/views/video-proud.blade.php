@@ -21,7 +21,7 @@
                     <div class="col-12 col-md-8 offset-md-2">
                         <div class="video-detail-wrapper">
                             <div class="video-state-name text-center">
-                                <p><b class="text-uppercase">Vòng 1 - Thi sáng tạo ảnh nhóm</b></p>
+                                <p><b class="text-uppercase">Thi sáng tạo ảnh & clip nhóm</b></p>
                                 <h1 class="text-green dancing">{{$video->name}}</h1>
                             </div>
 
@@ -38,7 +38,7 @@
                                             $leader = $members->first();
                                         @endphp
                                         <p><b>Đội tham gia:</b> <span class="text-green">{{$video->team_member_name}}</span></p>
-                                        <p><b>Trưởng nhóm:</b> <span class="text-green">{{$leader->first_name}}</span></p>
+                                        <p><b>Trưởng nhóm:</b> <span class="text-green">{{$leader != null ? $leader->first_name : ''}}</span></p>
                                         <p class="list-member">
                                             <b>Thành viên:</b> <span class="text-green">{{count($memberArray)}} thành viên</span>
                                             <a href="javascript:;" id="view-member-list">Xem danh sách</a>
@@ -64,19 +64,13 @@
                             <table class="table table-hover">
                                 <thead>
                                 <tr>
-                                    <th width="100">Mã HRM</th>
                                     <th>Họ và tên</th>
-                                    <th width="200">Phòng ban</th>
-                                    <th>Nơi công tác</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($members as $member)
                                         <tr>
-                                            <td>{{$member->hrm}} </td>
                                             <td>{{$member->first_name}} {{$loop->index == 0 ? '⭐' : ''}}</td>
-                                            <td>{{$member->department}}</td>
-                                            <td>{{$member->area}}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -104,6 +98,15 @@
                                             <source src="{{env('APP_URL').'/storage/'.$video->video_link}}" type="video/mp4">
                                             Your browser doesn't support HTML5 video tag.
                                         </video>
+                                    </div>
+                                @endif
+
+                                @if ($video->youtube_link != null)
+                                    <div class="item">
+                                        <a data-fancybox class="exe-has-video" href="{{getVideoEmbedLink($video->youtube_link)}}">
+                                            <i class="fa-solid fa-play"></i>
+                                            <img src="{{ RvMedia::getImageUrl($video->image, 'full', false, RvMedia::getDefaultImage()) }}" alt="" class="img-fluid">
+                                        </a>
                                     </div>
                                 @endif
                             </div>
@@ -247,7 +250,7 @@
                                                 $leader = $members->first();
                                             @endphp
                                             <p><b>Đội tham gia:</b> <span class="text-green">{{$news->team_member_name}}</span></p>
-                                            <p><b>Trưởng nhóm:</b> <span class="text-green">{{$leader->first_name}}</span></p>
+                                            <p><b>Trưởng nhóm:</b> <span class="text-green">{{$leader != null ? $leader->first_name : ''}}</span></p>
                                             <p><b>Thành viên:</b> <span class="text-green">{{count($memberArray)}} thành viên</span></p>
                                         </div>
                                         <div class="video-meta-action d-flex align-items-center">

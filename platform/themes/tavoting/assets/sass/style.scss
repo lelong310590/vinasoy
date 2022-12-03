@@ -233,6 +233,7 @@ a.read-more {
 }
 
 .section-exe {
+    padding-top: 50px;
     .exe-title {
         margin-bottom: 100px;
         h4 {
@@ -282,6 +283,10 @@ a.read-more {
         flex: 1;
         padding-top: 65px;
         width: calc(65% - 35px);
+        & > h4 {
+            font-weight: 700;
+            margin-bottom: 35px;
+        }
         .exe-detail {
             height: 295px;
             overflow: hidden;
@@ -307,7 +312,8 @@ a.read-more {
 }
 
 .exe-carousel-wrapper {
-    margin-top: -10%;
+    margin-top: 0;
+    padding-top: 35px;
     .news-thumbnail {
         padding: 40px;
         overflow: hidden;
@@ -335,6 +341,18 @@ a.read-more {
 
 .news-thumbnail {
     text-align: center;
+}
+
+.home-new-carousel {
+    .news-thumbnail {
+        a {
+            height: 183px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
 }
 
 .section-proud {

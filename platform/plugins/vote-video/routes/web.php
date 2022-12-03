@@ -28,6 +28,12 @@ Route::group(['namespace' => 'Botble\VideoVoting\Http\Controllers', 'middleware'
             Route::resource('', 'VideoController')
                 ->parameters(['' => 'video']);
 
+            Route::get('view-vote/{id}', [
+                'as'         => 'view-vote',
+                'uses'       => 'VideoController@viewVote',
+                'permission' => 'video.edit',
+            ]);
+
             Route::delete('items/destroy', [
                 'as'         => 'deletes',
                 'uses'       => 'VideoController@deletes',

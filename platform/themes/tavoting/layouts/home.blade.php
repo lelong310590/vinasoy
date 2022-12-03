@@ -125,6 +125,25 @@
                                 <img src="{{ RvMedia::getImageUrl($hightLightExe->image, 'square', false, RvMedia::getDefaultImage()) }}" alt="" class="img-fluid">
                             </div>
                             <div class="ext-content">
+
+                                @php
+                                    $memberList = $hightLightExe->member_id;
+                                    $memberArray = explode(',', $memberList);
+
+                                    $members = app(\Botble\Member\Repositories\Interfaces\MemberInterface::class)
+                                        ->getModel()
+                                        ->whereIn('hrm', $memberArray)
+                                        ->get();
+                                @endphp
+
+                                <div class="exe-content-meta">
+                                    <p><b>Câu chuyện được chia sẻ bởi</b></p>
+                                    <div class="ext-content-author text-green">
+                                        @foreach($members as $m)
+                                            <p>{{$m->name}} - {{$m->hrm}}</p>
+                                        @endforeach
+                                    </div>
+                                </div>
                                 <h4 class="text-orange text-uppercase">{{$hightLightExe->name}}</h4>
                                 <div class="exe-detail">
                                     {!! clean($hightLightExe->content) !!}

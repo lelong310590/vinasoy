@@ -1,7 +1,6 @@
 @php
     $memberList = $video->member_id;
     $memberArray = explode(',', $memberList);
-
     $members = app(\Botble\Member\Repositories\Interfaces\MemberInterface::class)
         ->getModel()
         ->whereIn('hrm', $memberArray)
@@ -81,10 +80,10 @@
         <div class="exe-detail-mega-title text-center">
             <h4 class="dancing text-green">Đọc thêm các câu chuyện khác!</h4>
             <p>Nếu bạn cũng có câu chuyện của riêng mình, đừng ngại ngần chia sẻ nó với chúng tôi.</p>
-            <div class="exe-detail-mega-nav text-center">
-                <a href="" class="text-orange">Xem thể lệ</a>
-                <a href="" class="text-orange">Chia sẻ câu chuyện</a>
-            </div>
+{{--            <div class="exe-detail-mega-nav text-center">--}}
+{{--                <a href="" class="text-orange">Xem thể lệ</a>--}}
+{{--                <a href="" class="text-orange">Chia sẻ câu chuyện</a>--}}
+{{--            </div>--}}
         </div>
 
         <div class="list-story-search d-flex justify-content-center">
