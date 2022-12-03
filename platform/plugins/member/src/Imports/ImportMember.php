@@ -30,7 +30,7 @@ class ImportMember implements ToModel, WithProgressBar
             'first_name' => $row[1],
             'password' => bcrypt($password),
             'department' => $row[3],
-            'area' => bcrypt($row[4]),
+            'area' => $row[4],
             'dob' => $row[2]
         ]);
     }

@@ -50,8 +50,7 @@
     <div class="form-popup-content">
         <div class="login-form text-center">
             <h4 class="text-green dancing">Đăng nhập</h4>
-            <p>Vui lòng nhập tên đăng nhập (Mã HRM) và mật khẩu của bạn (ngày/tháng/năm sinh).<br/>
-                Ví dụ: bạn sinh ngày 19/08/1980, nhập mật khẩu là 19081980</p>
+            <p>Vui lòng nhập tên đăng nhập (Mã HRM) và mật khẩu của bạn (ngày/tháng/năm sinh)</p>
             <form method="POST" action="{{ route('public.member.login') }}">
                 @csrf
                 <div class="form-group">
@@ -65,16 +64,45 @@
                             </span>
                     @endif
                 </div>
+{{--                <div class="form-group">--}}
+{{--                    <div class="input-group">--}}
+{{--                        <input id="password" type="password"--}}
+{{--                               class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} d-none"--}}
+{{--                               placeholder="Mật khẩu" name="password">--}}
+{{--                        @if ($errors->has('password'))--}}
+{{--                            <span class="invalid-feedback">--}}
+{{--                                <strong>{{ $errors->first('password') }}</strong>--}}
+{{--                            </span>--}}
+{{--                        @endif--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
                 <div class="form-group">
-                    <div class="input-group">
-                        <input id="password" type="password"
-                               class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
-                               placeholder="Mật khẩu" name="password">
-                        @if ($errors->has('password'))
-                            <span class="invalid-feedback">
-                                <strong>{{ $errors->first('password') }}</strong>
-                            </span>
-                        @endif
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="">Ngày sinh</label>
+                            <select name="dob_day" id="dob_day" class="form-control">
+                                @for($i = 1; $i <= 31; $i++)
+                                    <option value="{{$i}}">{{$i}}</option>
+                                @endfor
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <label for="">Tháng sinh</label>
+                            <select name="dob_month" id="dob_month" class="form-control">
+                                @for($i = 1; $i <= 12; $i++)
+                                    <option value="{{$i < 10 ? '0'.$i : $i}}">{{$i}}</option>
+                                @endfor
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <label for="">Năm sinh</label>
+                            <select name="dob_year" id="dob_year" class="form-control">
+                                @for($i = 1945; $i <= 2010; $i++)
+                                    <option value="{{$i}}">{{$i}}</option>
+                                @endfor
+                            </select>
+                        </div>
                     </div>
                 </div>
 

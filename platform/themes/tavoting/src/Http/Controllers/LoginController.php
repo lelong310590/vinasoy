@@ -160,4 +160,19 @@ class LoginController extends BaseController
     {
         return 'hrm';
     }
+
+    /**
+     * @param Request $request
+     * @return array
+     */
+    protected function credentials(Request $request)
+    {
+        $dobDay = $request->get('dob_day');
+        $dobMonth = $request->get('dob_month');
+        $dobYear = $request->get('dob_year');
+        return [
+            'hrm' => $request->get('hrm'),
+            'password' =>  $dobDay.$dobMonth.$dobYear
+        ];
+    }
 }
