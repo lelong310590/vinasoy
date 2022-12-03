@@ -211,32 +211,48 @@
         @endphp
 
         <div class="list-wrapper news-item-small">
+
+            @if (Request::get('k') != '' && $exes != [])
+                <div class="empty-search text-center">
+                    <p>Tìm thấy <span class="text-green">{{$exes->count()}} kết quả</span> theo từ khóa của bạn.</p>
+                </div>
+            @endif
+
             <div class="row">
-                @foreach($exes as $news)
-                <div class="col-12 col-md-3">
-                    <div class="news-item">
-                        <div class="news-thumbnail">
-                            <a href="{{$news->url}}">
-                                <img src="{{ RvMedia::getImageUrl($news->image, 'square', false, RvMedia::getDefaultImage()) }}" alt="{{$news->name}}" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="news-meta text-center">
-                            <h4 class="news-title text-uppercase text-green">{{$news->name}}</h4>
-                            <div class="news-expert">
-                                {{$news->description}}
+                @forelse($exes as $news)
+                    <div class="col-12 col-md-3">
+                        <div class="news-item">
+                            <div class="news-thumbnail">
+                                <a href="{{$news->url}}">
+                                    <img src="{{ RvMedia::getImageUrl($news->image, 'square', false, RvMedia::getDefaultImage()) }}" alt="{{$news->name}}" class="img-fluid">
+                                </a>
                             </div>
-                            <div class="text-center news-more">
-                                <a href="{{$news->url}}" class="read-more">Đọc thêm</a>
+                            <div class="news-meta text-center">
+                                <h4 class="news-title text-uppercase text-green">{{$news->name}}</h4>
+                                <div class="news-expert">
+                                    {{$news->description}}
+                                </div>
+                                <div class="text-center news-more">
+                                    <a href="{{$news->url}}" class="read-more">Đọc thêm</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                @endforeach
+                @empty
+                    @if (Request::get('k') != '')
+                        <div class="empty-search text-center">
+                            <p>Không tìm thấy <span class="text-green">kết quả</span> theo từ khóa của bạn.</p>
+                            <img src="{{Theme::asset()->url('images/empty.png')}}" alt="" class="img-fluid mx-auto">
+                        </div>
+                    @endif
+                @endforelse
             </div>
 
+            @if ($exes != [])
             <div class="pagination-wrapper text-center">
                 {{$exes->withQueryString()->links() }}
             </div>
+            @endif
         </div>
     </div>
 </section>

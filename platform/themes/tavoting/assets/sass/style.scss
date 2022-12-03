@@ -1039,5 +1039,12 @@ a.read-more {
     }
 }
 
+.empty-search {
+    width: 100%;
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 25px;
+}
+
 @import 'desktop';
 @import 'mobile';
