@@ -13,9 +13,9 @@
                     Bạn đã sẵn sàng bùng nổ sự sáng tạo và chinh phục thử thách <span class="text-green">“Vinasoy – Tự hào 25 năm”</span> chưa?
                 </div>
             </div>
-            <div class="proud-hero-more story-hero-more text-center">
-                <a href="javascript:;" class="read-more">Xem thể lệ</a>
-            </div>
+{{--            <div class="proud-hero-more story-hero-more text-center">--}}
+{{--                <a href="javascript:;" class="read-more">Xem thể lệ</a>--}}
+{{--            </div>--}}
         </div>
     </div>
 
