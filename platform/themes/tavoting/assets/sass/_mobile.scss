@@ -64,6 +64,9 @@
 
     .exe-hightlight-wrapper {
         position: relative;
+        .ext-content {
+            width: 100%;
+        }
     }
 
     a.read-more {

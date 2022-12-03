@@ -139,14 +139,14 @@
                         ->where('member_id', 'like', '%'.$member->id.'%')
                         ->where('status', 'published')
                         ->orderBy('created_at', 'desc')
-                        ->pagiate(16);
+                        ->paginate(16);
                 }
 
 
             } else {
                 $exes = $exesQuery->where('status', 'published')
                         ->orderBy('created_at', 'desc')
-                        ->pagiate(16);
+                        ->paginate(16);
             }
 
             $listVoted = [];

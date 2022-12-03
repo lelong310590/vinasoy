@@ -281,6 +281,10 @@ a.read-more {
         .exe-detail {
             height: 295px;
             overflow: hidden;
+            img {
+                max-width: 100%;
+                display: block;
+            }
             &.exe-detail-full {
                 height: unset;
                 overflow: unset;
