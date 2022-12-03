@@ -237,6 +237,12 @@ class VideoTable extends TableAbstract
                 'choices'  => BaseStatusEnum::labels(),
                 'validate' => 'required|in:' . implode(',', BaseStatusEnum::values()),
             ],
+            'category'         => [
+                'title'    => trans('plugins/blog::posts.category'),
+                'type'     => 'select-search',
+                'validate' => 'required',
+                'callback' => 'getCategories',
+            ],
             'created_at' => [
                 'title'    => trans('core/base::tables.created_at'),
                 'type'     => 'date',
