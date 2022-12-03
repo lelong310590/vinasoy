@@ -129,6 +129,10 @@
                                 <div class="exe-detail">
                                     {!! clean($hightLightExe->content) !!}
                                 </div>
+
+                                <div class="ext-hightlight-more text-center">
+                                    <a href="{{$hightLightExe->url}}" class="read-more">Xem chi tiết</a>
+                                </div>
                             </div>
                         </div>
                     </div>
