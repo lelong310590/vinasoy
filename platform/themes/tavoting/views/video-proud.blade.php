@@ -94,16 +94,16 @@
                                 @endforeach
 
                                 @if ($video->video_link != null)
-                                        <div class="item">
-                                            <a data-fancybox href="#myVideo">
-                                                <img src="{{ RvMedia::getImageUrl($video->image, 'full', false, RvMedia::getDefaultImage()) }}" alt="" class="img-fluid">
-                                            </a>
+                                    <div class="item">
+                                        <a data-fancybox href="#myVideo">
+                                            <img src="{{ RvMedia::getImageUrl($video->image, 'full', false, RvMedia::getDefaultImage()) }}" alt="" class="img-fluid">
+                                        </a>
 
-                                            <video width="640" height="320" controls id="myVideo" style="display:none;">
-                                                <source src="{{env('APP_URL').'/storage/'.$video->video_link}}" type="video/mp4">
-                                                Your browser doesn't support HTML5 video tag.
-                                            </video>
-                                        </div>
+                                        <video width="640" height="320" controls id="myVideo" style="display:none;">
+                                            <source src="{{env('APP_URL').'/storage/'.$video->video_link}}" type="video/mp4">
+                                            Your browser doesn't support HTML5 video tag.
+                                        </video>
+                                    </div>
                                 @endif
                             </div>
                             <div class="carousel-navigation d-none d-md-flex">
@@ -238,7 +238,7 @@
                                             @endphp
                                             <p><b>Đội tham gia:</b> <span class="text-green">{{$news->team_member_name}}</span></p>
                                             <p><b>Trưởng nhóm:</b> <span class="text-green">{{$leader->first_name}}</span></p>
-                                            <p><b>Thành viên:</b> <span class="text-green">{{count($memberArray)}} thành viên</span> a</p>
+                                            <p><b>Thành viên:</b> <span class="text-green">{{count($memberArray)}} thành viên</span></p>
                                         </div>
                                         <div class="video-meta-action d-flex align-items-center">
                                             <div class="video-meta-like-count">
