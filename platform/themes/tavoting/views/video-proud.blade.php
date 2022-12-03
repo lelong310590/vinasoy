@@ -196,23 +196,32 @@
                         ->orWhere('first_name', 'like', '%'.Request::get('k').'%')
                         ->first();
 
-                $exes = $exesQuery
+                if ($member == null) {
+                    $exes = [];
+                } else {
+                    $exes = $exesQuery
                         ->where('member_id', 'like', '%'.$member->hrm.'%')
                         ->where('status', 'published')
                         ->orderBy('created_at', 'desc')
-                        ->limit(16)
-                        ->get();
+                        ->paginate(16);
+                }
             } else {
                 $exes = $exesQuery->where('status', 'published')
                         ->orderBy('created_at', 'desc')
-                        ->limit(16)
-                        ->get();
+                        ->paginate(16);
             }
         @endphp
 
         <div class="list-wrapper">
+
+            @if (Request::get('k') != '' && $exes != [])
+                <div class="empty-search text-center">
+                    <p>Tìm thấy <span class="text-green">{{$exes->count()}} kết quả</span> theo từ khóa của bạn.</p>
+                </div>
+            @endif
+
             <div class="row">
-                @foreach($exes as $news)
+                @forelse($exes as $news)
                     <div class="col-12 col-md-4">
                         <div class="news-item">
                             <div class="news-thumbnail">
@@ -256,12 +265,21 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    @if (Request::get('k') != '')
+                        <div class="empty-search text-center">
+                            <p>Không tìm thấy <span class="text-green">kết quả</span> theo từ khóa của bạn.</p>
+                            <img src="{{Theme::asset()->url('images/empty.png')}}" alt="" class="img-fluid mx-auto">
+                        </div>
+                    @endif
+                @endforelse
             </div>
 
-            <div class="pagination-wrapper text-center">
-                {{$exes->withQueryString()->links() }}
-            </div>
+            @if ($exes != [])
+                <div class="pagination-wrapper text-center">
+                    {{$exes->withQueryString()->links() }}
+                </div>
+            @endif
         </div>
     </div>
 </section>

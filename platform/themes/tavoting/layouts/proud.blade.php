@@ -161,7 +161,6 @@
             @if (Request::get('k') != '' && $exes != [])
                 <div class="empty-search text-center">
                     <p>Tìm thấy <span class="text-green">{{$exes->count()}} kết quả</span> theo từ khóa của bạn.</p>
-
                 </div>
             @endif
 
