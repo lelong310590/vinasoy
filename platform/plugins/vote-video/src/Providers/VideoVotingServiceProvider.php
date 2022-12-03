@@ -23,6 +23,10 @@ use Illuminate\Support\ServiceProvider;
 use SlugHelper;
 use Botble\Base\Supports\Helper;
 use EmailHandler;
+use SeoHelper;
+use Note;
+use Language;
+use Gallery;
 
 class VideoVotingServiceProvider extends ServiceProvider
 {
@@ -92,6 +96,25 @@ class VideoVotingServiceProvider extends ServiceProvider
                     'url'         => route('video-categories.index'),
                     'permissions' => ['video_categories.index'],
                 ]);
+        });
+
+        $this->app->booted(function () {
+            $models = [Video::class, VideoCategory::class];
+
+//            if (defined('LANGUAGE_MODULE_SCREEN_NAME')) {
+//                Language::registerModule($models);
+//            }
+
+            SeoHelper::registerModule($models);
+
+            Gallery::registerModule($models);
+
+            $configKey = 'packages.revision.general.supported';
+            config()->set($configKey, array_merge(config($configKey, []), [Video::class]));
+
+            if (defined('NOTE_FILTER_MODEL_USING_NOTE')) {
+                Note::registerModule(Video::class);
+            }
         });
     }
 }

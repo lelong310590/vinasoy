@@ -100,6 +100,17 @@ class VideoForm extends FormAbstract
                 'label'      => trans('plugins/vote-video::video.form.link-youtube'),
                 'label_attr' => ['class' => 'control-label'],
             ])
+            ->add('member_id', 'text', [
+                'label'      => 'Mã HRM của các thành viên',
+                'label_attr' => ['class' => 'control-label'],
+                'attr'       => [
+                    'placeholder'            => 'Mỗi mã cách nhau bởi dấu ,',
+                ],
+            ])
+            ->add('team_member_name', 'text', [
+                'label'      => 'Tên đội',
+                'label_attr' => ['class' => 'control-label'],
+            ])
             ->add('image', 'mediaImage', [
                 'label'      => trans('core/base::forms.image'),
                 'label_attr' => ['class' => 'control-label'],

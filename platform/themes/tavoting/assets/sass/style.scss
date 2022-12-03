@@ -249,6 +249,10 @@ a.read-more {
     min-height: 600px;
     display: flex;
     align-items: flex-end;
+    .ext-hightlight-more {
+        display: block;
+        margin-top: 25px;
+    }
 }
 
 .story-hightlight {
@@ -289,6 +293,15 @@ a.read-more {
                 height: unset;
                 overflow: unset;
             }
+        }
+    }
+}
+
+.video-detail-content-description {
+    .exe-detail {
+        max-width: 100%;
+        img {
+            max-width: 100%;
         }
     }
 }

@@ -116,6 +116,7 @@
 
             @endphp
 
+            @if ($hightLightExe != null)
             <div class="exe-hightlight">
                 <div class="exe-hightlight-wrapper">
                     <div class="container">
@@ -133,6 +134,8 @@
                     </div>
                 </div>
             </div>
+
+            @endif
 
             <div class="container">
                 <div class="exe-carousel-wrapper carousel-wrapper">
@@ -217,12 +220,9 @@
                                                     $memberArray = explode(',', $memberList);
                                                     $members = app(\Botble\Member\Repositories\Interfaces\MemberInterface::class)
                                                         ->getModel()
-                                                        ->whereIn('id', $memberArray)
+                                                        ->whereIn('hrm', $memberArray)
                                                         ->get();
-                                                    $leader = app(\Botble\Member\Repositories\Interfaces\MemberInterface::class)
-                                                        ->getModel()
-                                                        ->whereIn('id', $memberArray)
-                                                        ->first();
+                                                    $leader = $members->first();
                                                 @endphp
                                                 <p><b>Đội tham gia:</b> <span class="text-green">{{$news->team_member_name}}</span></p>
                                                 <p><b>Trưởng nhóm:</b> <span class="text-green">{{$leader->first_name}}</span></p>

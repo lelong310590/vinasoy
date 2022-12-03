@@ -17,9 +17,9 @@
                     Hãy một lần tự tin “kể hết” cùng <b>“Chuyện bây giờ mới kể”</b> nhé!
                 </div>
             </div>
-            <div class="story-hero-more text-center">
-                <a href="javascript:;" class="read-more">Xem thể lệ</a>
-            </div>
+{{--            <div class="story-hero-more text-center">--}}
+{{--                <a href="javascript:;" class="read-more">Xem thể lệ</a>--}}
+{{--            </div>--}}
         </div>
     </div>
     <div class="story-rule">
@@ -97,8 +97,8 @@
         <div class="story-cta-title text-center">
             <h4 class="text-green dancing">Tham gia ngay!</h4>
             <p>Để tham gia chia sẻ câu chuyện, bạn hãy click vào nút bên dưới và làm theo hướng dẫn.</p>
-            <a href="javascript:;" class="read-more open-story-form">Chia sẻ câu chuyện <i class="fa-sharp fa-solid fa-down"></i></a>
-            <p><b>Thời hạn nhận bài: 30/11/2022</b></p>
+{{--            <a href="javascript:;" class="read-more open-story-form">Chia sẻ câu chuyện <i class="fa-sharp fa-solid fa-down"></i></a>--}}
+            <p><b>Thời hạn nhận bài: Đã hết thời hạn nhận bài</b></p>
         </div>
 
         <div class="story-form">
@@ -155,6 +155,9 @@
                         <h4 class="text-orange text-uppercase">{{$hightLightExe->name}}</h4>
                         <div class="exe-detail">
                             {!! clean($hightLightExe->content) !!}
+                        </div>
+                        <div class="ext-hightlight-more text-center">
+                            <a href="{{$hightLightExe->url}}" class="read-more">Xem chi tiết</a>
                         </div>
                     </div>
                 </div>

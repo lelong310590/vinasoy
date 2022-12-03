@@ -33,12 +33,9 @@
                                             $memberArray = explode(',', $memberList);
                                             $members = app(\Botble\Member\Repositories\Interfaces\MemberInterface::class)
                                                 ->getModel()
-                                                ->whereIn('id', $memberArray)
+                                                ->whereIn('hrm', $memberArray)
                                                 ->get();
-                                            $leader = app(\Botble\Member\Repositories\Interfaces\MemberInterface::class)
-                                                ->getModel()
-                                                ->whereIn('id', $memberArray)
-                                                ->first();
+                                            $leader = $members->first();
                                         @endphp
                                         <p><b>Đội tham gia:</b> <span class="text-green">{{$video->team_member_name}}</span></p>
                                         <p><b>Trưởng nhóm:</b> <span class="text-green">{{$leader->first_name}}</span></p>
@@ -192,12 +189,9 @@
                                                 $memberArray = explode(',', $memberList);
                                                 $members = app(\Botble\Member\Repositories\Interfaces\MemberInterface::class)
                                                     ->getModel()
-                                                    ->whereIn('id', $memberArray)
+                                                    ->whereIn('hrm', $memberArray)
                                                     ->get();
-                                                $leader = app(\Botble\Member\Repositories\Interfaces\MemberInterface::class)
-                                                    ->getModel()
-                                                    ->whereIn('id', $memberArray)
-                                                    ->first();
+                                                $leader = $members->first();
                                             @endphp
                                             <p><b>Đội tham gia:</b> <span class="text-green">{{$news->team_member_name}}</span></p>
                                             <p><b>Trưởng nhóm:</b> <span class="text-green">{{$leader->first_name}}</span></p>
