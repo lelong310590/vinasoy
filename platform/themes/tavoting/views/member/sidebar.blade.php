@@ -15,9 +15,8 @@
                 Bài thi của tôi
             </div>
             <ul>
-                <li><a href="{{route('public.member.challenge', ['slug' => 'chuyen-bay-gio-moi-ke'])}}">Vinasoy, chuyện bây giờ mới kể</a></li>
-                <li><a href="">Tự hào 25 năm - <span>Vòng 1</span></a></li>
-                <li><a href="">Tự hào 25 năm - <span>Vòng 2</span></a></li>
+                <li><a href="{{route('public.member.challenge', ['slug' => 'chuyen-bay-gio-moi-ke'])}}">Chuyện bây giờ mới kể</a></li>
+                <li><a href="">Tự hào 25 năm</a></li>
             </ul>
         </div>
         <div class="dashboard-list">
@@ -25,8 +24,7 @@
                 Bài tôi đã bình chọn
             </div>
             <ul>
-                <li><a href="">Tự hào 25 năm - <span>Vòng 1</span></a></li>
-                <li><a href="">Tự hào 25 năm - <span>Vòng 2</span></a></li>
+                <li><a href="">Tự hào 25 năm</a></li>
             </ul>
         </div>
     </div>

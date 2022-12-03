@@ -59,9 +59,13 @@
                     <div class="col-12">
                         <div class="video-detail-carousel-wrapper carousel-wrapper">
                             <div class="video-detail-carousel owl-carousel owl-theme">
-                                <div class="item">
-                                    <img src="{{ RvMedia::getImageUrl($video->image, 'full', false, RvMedia::getDefaultImage()) }}" alt="" class="img-fluid">
-                                </div>
+                                @foreach (gallery_meta_data($video) as $image)
+                                    @if ($image)
+                                        <div class="item">
+                                            <img src="{{ RvMedia::getImageUrl(Arr::get($image, 'img'), 'full', false, RvMedia::getDefaultImage()) }}" alt="{{ clean(Arr::get($image, 'description')) }}" class="img-fluid">
+                                        </div>
+                                    @endif
+                                @endforeach
                             </div>
                             <div class="carousel-navigation d-none d-md-flex">
                                 <a href="javascript:;" class="news-carousel-navigation carousel-left"><i class="fa-solid fa-circle-arrow-left"></i></a>
