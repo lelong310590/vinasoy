@@ -95,7 +95,8 @@
 
                                 @if ($video->video_link != null)
                                     <div class="item">
-                                        <a data-fancybox href="#myVideo">
+                                        <a data-fancybox href="#myVideo" class="exe-has-video">
+                                            <i class="fa-solid fa-play"></i>
                                             <img src="{{ RvMedia::getImageUrl($video->image, 'full', false, RvMedia::getDefaultImage()) }}" alt="" class="img-fluid">
                                         </a>
 
