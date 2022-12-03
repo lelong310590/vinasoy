@@ -92,6 +92,19 @@
                                         </div>
                                     @endif
                                 @endforeach
+
+                                @if ($video->video_link != null)
+                                        <div class="item">
+                                            <a data-fancybox href="#myVideo">
+                                                <img src="{{ RvMedia::getImageUrl($video->image, 'full', false, RvMedia::getDefaultImage()) }}" alt="" class="img-fluid">
+                                            </a>
+
+                                            <video width="640" height="320" controls id="myVideo" style="display:none;">
+                                                <source src="{{env('APP_URL').'/'.$video->video_link}}" type="video/mp4">
+                                                Your browser doesn't support HTML5 video tag.
+                                            </video>
+                                        </div>
+                                @endif
                             </div>
                             <div class="carousel-navigation d-none d-md-flex">
                                 <a href="javascript:;" class="news-carousel-navigation carousel-left"><i class="fa-solid fa-circle-arrow-left"></i></a>
