@@ -111,7 +111,7 @@
                         ->first();
 
                 $exes = $exesQuery
-                        ->where('member_id', 'like', '%'.$member->id.'%')
+                        ->where('member_id', 'like', '%'.$member->hrm.'%')
                         ->where('status', 'published')
                         ->orderBy('created_at', 'desc')
                         ->limit(10)
