@@ -100,7 +100,7 @@
                                             </a>
 
                                             <video width="640" height="320" controls id="myVideo" style="display:none;">
-                                                <source src="{{env('APP_URL').'/'.$video->video_link}}" type="video/mp4">
+                                                <source src="{{env('APP_URL').'/storage/'.$video->video_link}}" type="video/mp4">
                                                 Your browser doesn't support HTML5 video tag.
                                             </video>
                                         </div>
