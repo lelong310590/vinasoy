@@ -61,6 +61,15 @@ class MemberTable extends TableAbstract
             ->editColumn('created_at', function ($item) {
                 return BaseHelper::formatDate($item->created_at);
             })
+            ->editColumn('hrm', function ($item) {
+                return $item->hrm;
+            })
+            ->editColumn('dob', function ($item) {
+                return $item->dob;
+            })
+            ->editColumn('area', function ($item) {
+                return $item->area;
+            })
             ->addColumn('operations', function ($item) {
                 return $this->getOperations('member.edit', 'member.destroy', $item);
             });
@@ -79,7 +88,9 @@ class MemberTable extends TableAbstract
             'last_name',
             'email',
             'created_at',
-            'hrm'
+            'hrm',
+            'dob',
+            'area'
         ]);
 
         return $this->applyScopes($query);
@@ -101,6 +112,14 @@ class MemberTable extends TableAbstract
             ],
             'hrm'      => [
                 'title' => 'Mã HRM',
+                'class' => 'text-left',
+            ],
+            'dob'      => [
+                'title' => 'Ngày sinh',
+                'class' => 'text-left',
+            ],
+            'area'      => [
+                'title' => 'Nơi làm việc',
                 'class' => 'text-left',
             ],
             'created_at' => [

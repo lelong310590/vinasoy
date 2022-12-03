@@ -16,11 +16,11 @@ $(document).ready(function () {
             autoHeight:true,
         })
 
-        body.on('click', '.news-carousel-navigation .carousel-left', function () {
+        body.on('click', '.news-carousel-navigation.carousel-left', function () {
             videoCarousel.trigger('prev.owl.carousel');
         });
 
-        body.on('click', '.news-carousel-navigation .carousel-right', function () {
+        body.on('click', '.news-carousel-navigation.carousel-right', function () {
             videoCarousel.trigger('next.owl.carousel');
         });
     }
@@ -47,11 +47,11 @@ $(document).ready(function () {
             }
         })
 
-        body.on('click', '.news-carousel-navigation .carousel-left', function () {
+        body.on('click', '.news-carousel-navigation.carousel-left', function () {
             homeNewsCarousel.trigger('prev.owl.carousel');
         });
 
-        body.on('click', '.news-carousel-navigation .carousel-right', function () {
+        body.on('click', '.news-carousel-navigation.carousel-right', function () {
             homeNewsCarousel.trigger('next.owl.carousel');
         });
     }
@@ -78,11 +78,11 @@ $(document).ready(function () {
             }
         })
 
-        body.on('click', '.news-carousel-navigation .carousel-left', function () {
+        body.on('click', '.news-carousel-navigation.carousel-left', function () {
             exeCarousel.trigger('prev.owl.carousel');
         });
 
-        body.on('click', '.news-carousel-navigation .carousel-right', function () {
+        body.on('click', '.news-carousel-navigation.carousel-right', function () {
             exeCarousel.trigger('next.owl.carousel');
         });
     }
@@ -108,11 +108,11 @@ $(document).ready(function () {
             }
         })
 
-        body.on('click', '.news-carousel-navigation .carousel-left', function () {
+        body.on('click', '.news-carousel-navigation.carousel-left', function () {
             proudCarousel.trigger('prev.owl.carousel');
         });
 
-        body.on('click', '.news-carousel-navigation .carousel-right', function () {
+        body.on('click', '.news-carousel-navigation.carousel-right', function () {
             proudCarousel.trigger('next.owl.carousel');
         });
     }
