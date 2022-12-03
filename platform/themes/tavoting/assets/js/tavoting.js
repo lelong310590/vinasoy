@@ -145,6 +145,16 @@ $(document).ready(function () {
         $('.main-navigation').css('display', 'none');
     })
 
+    body.on('click', '#view-member-list', function () {
+        $('.member-list').toggleClass('active');
+        if ($('.member-list').hasClass('active')) {
+            $('#view-member-list').text('Thu gọn')
+        }else {
+            $('#view-member-list').text('Xem danh sách')
+        }
+
+    })
+
     if ($('#dropzone-item').length > 0) {
         $("#dropzone-item").dropzone({ url: "/file/post" });
     }

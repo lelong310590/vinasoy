@@ -118,6 +118,14 @@ class Video extends BaseModel
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function votedByUser()
+    {
+        return $this->belongsToMany(Member::class, 'member_video_vote', 'video_id', 'member_id');
+    }
+
+    /**
      * @return MorphTo
      */
     public function author(): MorphTo

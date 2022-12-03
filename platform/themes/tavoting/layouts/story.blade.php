@@ -143,6 +143,7 @@
                             ->first();
 @endphp
 
+@if ($hightLightExe != null)
 <section class="exe-content">
     <div class="exe-hightlight story-hightlight">
         <div class="exe-hightlight-wrapper">
@@ -165,6 +166,7 @@
         </div>
     </div>
 </section>
+@endif
 
 <section class="list-story">
     <div class="container">

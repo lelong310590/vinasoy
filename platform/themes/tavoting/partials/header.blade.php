@@ -61,8 +61,8 @@
                                 <div class="member-navigation-dropdown">
                                     <ul>
                                         <li><a href="{{route('public.member.dashboard')}}">Thông tin tài khoản</a></li>
-                                        <li><a href="">Chuyện bây giờ mới kể</a></li>
-                                        <li><a href="">Tự hào 25 năm</a></li>
+                                        <li><a href="{{route('public.member.challenge', ['slug' => 'chuyen-bay-gio-moi-ke'])}}">Chuyện bây giờ mới kể</a></li>
+                                        <li><a href="{{route('public.member.challenge', ['slug' => 'tu-hao-25-nam'])}}">Tự hào 25 năm</a></li>
                                         <li><a href="javascript:;" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Đăng xuất</a></li>
                                     </ul>
                                     <form id="logout-form" action="{{ route('public.member.logout') }}" method="POST" style="display: none;">

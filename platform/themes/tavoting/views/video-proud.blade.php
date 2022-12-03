@@ -39,7 +39,10 @@
                                         @endphp
                                         <p><b>Đội tham gia:</b> <span class="text-green">{{$video->team_member_name}}</span></p>
                                         <p><b>Trưởng nhóm:</b> <span class="text-green">{{$leader->first_name}}</span></p>
-                                        <p><b>Thành viên:</b> <span class="text-green">{{count($memberArray)}} thành viên</span></p>
+                                        <p class="list-member">
+                                            <b>Thành viên:</b> <span class="text-green">{{count($memberArray)}} thành viên</span>
+                                            <a href="javascript:;" id="view-member-list">Xem danh sách</a>
+                                        </p>
                                     </div>
                                     <div class="video-meta-action d-flex align-items-center justify-content-center flex-column">
                                         <div class="video-meta-like-count">
@@ -57,6 +60,29 @@
                     </div>
 
                     <div class="col-12">
+                        <div class="member-list">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th width="100">Mã HRM</th>
+                                    <th>Họ và tên</th>
+                                    <th width="200">Phòng ban</th>
+                                    <th>Nơi công tác</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($members as $member)
+                                        <tr>
+                                            <td>{{$member->hrm}} </td>
+                                            <td>{{$member->first_name}} {{$loop->index == 0 ? '⭐' : ''}}</td>
+                                            <td>{{$member->department}}</td>
+                                            <td>{{$member->area}}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+
                         <div class="video-detail-carousel-wrapper carousel-wrapper">
                             <div class="video-detail-carousel owl-carousel owl-theme">
                                 @foreach (gallery_meta_data($video) as $image)
@@ -199,7 +225,7 @@
                                             @endphp
                                             <p><b>Đội tham gia:</b> <span class="text-green">{{$news->team_member_name}}</span></p>
                                             <p><b>Trưởng nhóm:</b> <span class="text-green">{{$leader->first_name}}</span></p>
-                                            <p><b>Thành viên:</b> <span class="text-green">{{count($memberArray)}} thành viên</span></p>
+                                            <p><b>Thành viên:</b> <span class="text-green">{{count($memberArray)}} thành viên</span> a</p>
                                         </div>
                                         <div class="video-meta-action d-flex align-items-center">
                                             <div class="video-meta-like-count">

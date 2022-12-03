@@ -661,9 +661,13 @@ a.read-more {
     padding: 30px;
     height: 100%;
     .dashboard-right-title {
-        font-weight: 700;
-        font-size: 24px;
         margin-bottom: 55px;
+        color: #000;
+        h4 {
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--color-1st)
+        }
     }
     .dashboard-right-content {
         display: flex;
@@ -675,6 +679,10 @@ a.read-more {
                     font-weight: 700;
                 }
             }
+        }
+        .news-item-small .news-thumbnail {
+            min-height: 205px;
+            padding: 25px;
         }
         .content-left, .content-right {
             flex: 1
@@ -1013,6 +1021,21 @@ a.read-more {
             font-weight: 700;
             color: #222;
         }
+    }
+}
+
+.list-member {
+    a {
+        font-weight: 700;
+        text-decoration: underline;
+        color: var(--color-2nd)
+    }
+}
+
+.member-list {
+    display: none;
+    &.active {
+        display: block;
     }
 }
 

@@ -94,6 +94,10 @@ class PublicController extends Controller
         return Theme::scope('member.dashboard', compact('user'))->render();
     }
 
+    /**
+     * @param $s
+     * @return \Botble\Theme\Facades\Response|\Response
+     */
     public function getChallenger($s)
     {
         $slug = SlugHelper::getSlug($s, SlugHelper::getPrefix(VideoCategory::class));
@@ -114,10 +118,35 @@ class PublicController extends Controller
             ->whereHas('categories', function ($q) use ($challengeCategory) {
                 $q->where('vv_video_categories.id', $challengeCategory->id);
             })
-            ->where('member_id', 'like', '%'.$user->id.'%')
+            ->where('member_id', 'like', '%'.$user->hrm.'%')
             ->paginate(6);
 
-        return Theme::scope('member.challenge', compact('post', 'user'))->render();
+        return Theme::scope('member.challenge', compact('post', 'user', 'challengeCategory'))->render();
+    }
+
+    /**
+     * @param $s
+     * @return \Botble\Theme\Facades\Response|\Response
+     */
+    public function getVoted($s)
+    {
+        $slug = SlugHelper::getSlug($s, SlugHelper::getPrefix(VideoCategory::class));
+
+        if (!$slug) {
+            abort(404);
+        }
+
+        $condition = [
+            'id'     => $slug->reference_id,
+            'status' => BaseStatusEnum::PUBLISHED,
+        ];
+
+        $challengeCategory = $this->challengeCategoryRepository->getFirstBy($condition);
+        $user = auth('member')->user();
+
+        $post = $user->videoVoted()->paginate(6);
+
+        return Theme::scope('member.voted', compact('post', 'user', 'challengeCategory'))->render();
     }
 
     /**

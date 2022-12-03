@@ -7,14 +7,14 @@
                 <div class="col-12 col-md-8">
                     <div class="dashboard-right">
                         <div class="dashboard-right-title text-green">
-                            <p>Bài thi của tôi</p>
+                            <p>Bài thi đã bình chọn</p>
                             <h4>{{$challengeCategory->name}}</h4>
                         </div>
                         <div class="dashboard-right-content">
                             @if ($post->count() == 0)
                                 <div class="empty w-100">
                                     <img src="{{Theme::asset()->url('images/empty.png')}}" alt="" class="img-fluid mx-auto">
-                                    <p class="mt-20">Bạn chưa có câu chuyện nào chia sẻ. Bạn có muốn chia sẻ câu chuyện của mình cho chúng tôi.</p>
+                                    <p class="mt-20 text-center">Bạn chưa tham gia bình chọn bài thi nào.</p>
                                 </div>
                             @else
                                 <div class="list-wrapper w-100 {{$challengeCategory->slug == 'chuyen-bay-gio-moi-ke' ? 'news-item-small' : ''}}">

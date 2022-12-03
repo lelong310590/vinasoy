@@ -76,6 +76,11 @@ if (defined('THEME_MODULE_SCREEN_NAME')) {
                     'uses' => 'PublicController@getChallenger',
                 ]);
 
+                Route::get('voted/{slug}', [
+                    'as'   => 'voted',
+                    'uses' => 'PublicController@getVoted',
+                ]);
+
                 Route::get('settings', [
                     'as'   => 'settings',
                     'uses' => 'PublicController@getSettings',
