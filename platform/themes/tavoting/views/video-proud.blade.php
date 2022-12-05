@@ -173,14 +173,14 @@
     <div class="container">
 
         <div class="exe-detail-mega-title text-center">
-            <h4 class="dancing text-green">Dach sách bài thi khác.</h4>
+            <h4 class="dancing text-green">Danh sách bài thi khác.</h4>
         </div>
 
         <div class="list-story-search d-flex justify-content-center">
             <div class="search-form">
                 <form action="{{Request::url()}}" method="get" role="form">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Nhập tên hoặc mã nhân viên để tìm câu chuyện dễ hơn" name="k" value="{{Request::get('k')}}">
+                        <input type="text" class="form-control" placeholder="Nhập tên hoặc mã nhân viên để tìm bài thi dễ hơn" name="k" value="{{Request::get('k')}}">
                     </div>
                     <button type="submit" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm</button>
                 </form>

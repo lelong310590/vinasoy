@@ -107,12 +107,12 @@
     <div class="container">
         <div class="list-story-search d-flex justify-content-center align-items-center flex-column">
             <h4 class="text-center text-green dancing">
-                Dach sách các bài thi khác.
+                Danh sách các bài thi khác.
             </h4>
             <div class="search-form">
                 <form action="{{Request::url()}}" method="get" role="form">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Nhập tên hoặc mã nhân viên để tìm câu chuyện dễ hơn" name="k" value="{{Request::get('k')}}">
+                        <input type="text" class="form-control" placeholder="Nhập tên hoặc mã nhân viên để tìm bài thi dễ hơn" name="k" value="{{Request::get('k')}}">
                     </div>
                     <button type="submit" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm</button>
                 </form>
@@ -131,6 +131,7 @@
                         ->where('hrm', Request::get('k'))
                         ->orWhere('first_name', 'like', '%'.Request::get('k').'%')
                         ->first();
+
 
                 if ($member == null) {
                     $exes = [];

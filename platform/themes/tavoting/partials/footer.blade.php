@@ -83,7 +83,7 @@
                             <label for="">Ngày sinh</label>
                             <select name="dob_day" id="dob_day" class="form-control">
                                 @for($i = 1; $i <= 31; $i++)
-                                    <option value="{{$i}}">{{$i}}</option>
+                                    <option value="{{$i < 10 ? '0'.$i : $i}}">{{$i < 10 ? '0'.$i : $i}}</option>
                                 @endfor
                             </select>
                         </div>
@@ -91,7 +91,7 @@
                             <label for="">Tháng sinh</label>
                             <select name="dob_month" id="dob_month" class="form-control">
                                 @for($i = 1; $i <= 12; $i++)
-                                    <option value="{{$i < 10 ? '0'.$i : $i}}">{{$i}}</option>
+                                    <option value="{{$i < 10 ? '0'.$i : $i}}">{{$i < 10 ? '0'.$i : $i}}</option>
                                 @endfor
                             </select>
                         </div>
