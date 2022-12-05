@@ -179,7 +179,7 @@
                                         <div class="row">
                                             <div class="col-12 col-md-5">
                                                 <div class="video-meta-name">
-                                                    <p><b>Vòng 1 - Thi ảnh</b></p>
+                                                    <p><b>Thi ảnh & video nhóm</b></p>
                                                     <p class="text-green dancing">{{$news->name}}</p>
                                                 </div>
                                             </div>
@@ -221,7 +221,7 @@
 
                     <div class="col-12 col-md-4">
                         <div class="news-item">
-                            <div class="news-thumbnail">
+                            <div class="news-thumbnail news-thumbnail-round-2">
                                 <a href="{{$news->url}}">
                                     <img src="{{ RvMedia::getImageUrl($news->image, 'medium', false, RvMedia::getDefaultImage()) }}" alt="{{$news->name}}" class="img-fluid">
                                 </a>

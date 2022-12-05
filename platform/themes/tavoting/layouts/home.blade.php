@@ -247,7 +247,7 @@
                                                     $leader = $members->first();
                                                 @endphp
                                                 <p><b>Đội tham gia:</b> <span class="text-green">{{$news->team_member_name}}</span></p>
-                                                <p><b>Trưởng nhóm:</b> <span class="text-green">{{$leader->first_name}}</span></p>
+                                                <p><b>Trưởng nhóm:</b> <span class="text-green">{{$leader != null ? $leader->first_name : ''}}</span></p>
                                                 <p><b>Thành viên:</b> <span class="text-green">{{count($memberArray)}} thành viên</span></p>
                                             </div>
                                             <div class="video-meta-action d-flex align-items-center">

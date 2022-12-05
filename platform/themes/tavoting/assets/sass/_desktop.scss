@@ -1,0 +1,11 @@
+@media screen and (min-width: 992px) {
+    .news-thumbnail-round-2 {
+        a {
+            max-height: 227.5px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

@@ -228,7 +228,7 @@
                 @forelse($exes as $news)
                     <div class="col-12 col-md-4">
                         <div class="news-item">
-                            <div class="news-thumbnail">
+                            <div class="news-thumbnail news-thumbnail-round-2">
                                 <a href="{{$news->url}}">
                                     <img src="{{ RvMedia::getImageUrl($news->image, 'medium', false, RvMedia::getDefaultImage()) }}" alt="{{$news->name}}" class="img-fluid">
                                 </a>

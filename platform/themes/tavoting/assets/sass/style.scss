@@ -944,6 +944,8 @@ a.read-more {
 .video-meta-small {
     .video-meta-name {
         font-size: 18px;
+        height: 54px;
+        overflow: hidden;
     }
     .video-meta-action {
         justify-content: space-between;
@@ -1084,6 +1086,8 @@ a.read-more {
         align-items: center;
     }
 }
+
+
 
 @import 'desktop';
 @import 'mobile';
