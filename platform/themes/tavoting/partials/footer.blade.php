@@ -133,9 +133,12 @@
                 text: 'Bạn muốn bỏ bình chọn bài thi này ?',
                 icon: 'info',
                 showCancelButton: true,
-                confirmButtonText: 'Yes',
                 allowOutsideClick: false,
-                allowEscapeKey: false
+                allowEscapeKey: false,
+                confirmButtonText: 'Đồng ý',
+                cancelButtonText: "Bỏ qua",
+                cancelButtonColor: "#FAA634",
+                confirmButtonColor: "#6EB43F",
             }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
@@ -158,7 +161,10 @@
                                     text: "Bạn không thể bỏ bình chọn bài thi này. Vui lòng thử lại sau",
                                     icon: 'error',
                                     allowOutsideClick: false,
-                                    allowEscapeKey: false
+                                    allowEscapeKey: false,
+                                    confirmButtonText: 'Đóng',
+                                    cancelButtonColor: "#FAA634",
+                                    confirmButtonColor: "#6EB43F",
                                 }).then((result) => {
                                     /* Read more about isConfirmed, isDenied below */
                                     if (result.isConfirmed) {} {
@@ -172,7 +178,10 @@
                                     text: "Bạn đã bỏ bình chọn cho bài thi này!",
                                     icon: 'success',
                                     allowOutsideClick: false,
-                                    allowEscapeKey: false
+                                    allowEscapeKey: false,
+                                    confirmButtonText: 'Đóng',
+                                    cancelButtonColor: "#FAA634",
+                                    confirmButtonColor: "#6EB43F",
                                 }).then((result) => {
                                     /* Read more about isConfirmed, isDenied below */
                                     if (result.isConfirmed) {
@@ -187,7 +196,10 @@
                                 text: "Bạn không thể bỏ bình chọn bài thi này. Vui lòng thử lại sau",
                                 icon: 'error',
                                 allowOutsideClick: false,
-                                allowEscapeKey: false
+                                allowEscapeKey: false,
+                                cancelButtonColor: "#FAA634",
+                                confirmButtonColor: "#6EB43F",
+                                confirmButtonText: 'Đóng',
                             }).then((result) => {
                                 /* Read more about isConfirmed, isDenied below */
                                 if (result.isConfirmed) {
@@ -211,9 +223,12 @@
                 text: 'Bạn muốn bình chọn bài thi này ?',
                 icon: 'info',
                 showCancelButton: true,
-                confirmButtonText: 'Yes',
                 allowOutsideClick: false,
-                allowEscapeKey: false
+                allowEscapeKey: false,
+                confirmButtonText: 'Bình chọn',
+                cancelButtonText: "Bỏ qua",
+                cancelButtonColor: "#FAA634",
+                confirmButtonColor: "#6EB43F",
             }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
@@ -236,7 +251,10 @@
                                     text: "Bạn không thể bình chọn bài thi này. Vui lòng thử lại sau",
                                     icon: 'error',
                                     allowOutsideClick: false,
-                                    allowEscapeKey: false
+                                    allowEscapeKey: false,
+                                    cancelButtonColor: "#FAA634",
+                                    confirmButtonColor: "#6EB43F",
+                                    confirmButtonText: 'Đóng',
                                 }).then((result) => {
                                     /* Read more about isConfirmed, isDenied below */
                                     if (result.isConfirmed) {} {
@@ -250,7 +268,10 @@
                                     text: "Bạn đã bình chọn cho bài thi này!",
                                     icon: 'success',
                                     allowOutsideClick: false,
-                                    allowEscapeKey: false
+                                    allowEscapeKey: false,
+                                    cancelButtonColor: "#FAA634",
+                                    confirmButtonColor: "#6EB43F",
+                                    confirmButtonText: 'Đóng',
                                 }).then((result) => {
                                     /* Read more about isConfirmed, isDenied below */
                                     if (result.isConfirmed) {
@@ -265,7 +286,10 @@
                                 text: "Bạn không thể bình chọn bài thi này. Vui lòng thử lại sau",
                                 icon: 'error',
                                 allowOutsideClick: false,
-                                allowEscapeKey: false
+                                allowEscapeKey: false,
+                                cancelButtonColor: "#FAA634",
+                                confirmButtonColor: "#6EB43F",
+                                confirmButtonText: 'Đóng',
                             }).then((result) => {
                                 /* Read more about isConfirmed, isDenied below */
                                 if (result.isConfirmed) {
@@ -281,9 +305,19 @@
                 title: 'Lưu ý!',
                 html:
                     'Bạn phải <a href="#" class="sign-in-button">đăng nhập</a> để bình chọn bài thi',
-                icon: 'error',
+                icon: 'warning',
+                showCancelButton: true,
                 allowOutsideClick: false,
-                allowEscapeKey: false
+                allowEscapeKey: false,
+                confirmButtonText: 'Đăng nhập',
+                cancelButtonText: "Bỏ qua",
+                cancelButtonColor: "#FAA634",
+                confirmButtonColor: "#6EB43F",
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    $('.form-popup').css('display', 'flex');
+                }
             })
             @endif
         })
