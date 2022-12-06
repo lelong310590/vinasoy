@@ -9,3 +9,30 @@
         }
     }
 }
+
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    .main-navigation ul.menu li.active a {
+        padding: 8px;
+    }
+
+    .main-navigation ul.menu li a {
+        margin: 0 10px;
+    }
+
+    .video-meta-wrapper, .video-detail-content-description {
+        flex-direction: column;
+    }
+
+    .video-meta-small .video-meta-action a {
+        text-align: center;
+    }
+
+    .video-detail-content-description .exe-sharing {
+        margin: 0;
+    }
+
+    .exe-sharing {
+        max-width: 90px;
+    }
+}

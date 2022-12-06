@@ -280,7 +280,7 @@
             Swal.fire({
                 title: 'Lưu ý!',
                 html:
-                    'Bạn phải <a href="{{route('public.member.login')}}">đăng nhập</a> để bình chọn bài thi',
+                    'Bạn phải <a href="#" class="sign-in-button">đăng nhập</a> để bình chọn bài thi',
                 icon: 'error',
                 allowOutsideClick: false,
                 allowEscapeKey: false

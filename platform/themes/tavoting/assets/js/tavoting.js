@@ -122,6 +122,7 @@ $(document).ready(function () {
     });
 
     body.on('click', '.sign-in-button', function () {
+        Swal.close();
         $('.form-popup').css('display', 'flex');
     })
 
